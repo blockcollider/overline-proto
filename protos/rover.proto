@@ -46,8 +46,8 @@ message RoverMessage {
 
     message Resync {
         message Interval {
-            uint64 from_block = 1;
-            uint64 to_block = 2;
+            Block from_block = 1;
+            Block to_block = 2;
         }
         // latest know block we have in storage, can be empty
         Block latest_block = 1;
