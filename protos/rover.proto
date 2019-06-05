@@ -57,11 +57,18 @@ message RoverMessage {
 
 
 message SettleTxCheckReq {
-  string addr_to = 1;
-  string addr_from = 2;
-  string bridged_chain = 3;
+  message PossibleTransaction {
+    string addr_to = 1;
+    string addr_from = 2;
+    bytes value = 3;
+    string bridged_chain = 4;
+    string tx_id = 5;
+    uint64 block_height = 6;
+    string token_type = 7;
+  }
+  repeated PossibleTransaction possible_transactions = 1;
 }
 
 message SettleTxCheckResponse {
-  bool is_before_settlement_height = 1;
+  repeated MarkedTransaction marked_transactions = 1;
 }
