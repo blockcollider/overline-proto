@@ -35,6 +35,14 @@ message RpcTransactionResponse {
     string  error     = 3;
 }
 
+message GetSpendableCollateralRequest {
+    string address = 1;
+}
+
+message GetSpendableCollateralResponse {
+    repeated OutPoint outpoints = 1;
+}
+
 message GetBalanceRequest {
     string address = 1;
 }
@@ -43,7 +51,8 @@ message GetBalanceResponse {
     string confirmed = 1;
     string unconfirmed = 2;
     string collateralized = 3;
-    string unit = 4;
+    string collateralizedSpendable = 4;
+    string unit = 5;
 }
 
 message MakerOrderInfo {
@@ -185,7 +194,9 @@ service Bc {
     rpc Help (Null) returns (HelpResponse) {}
     rpc Stats (Null) returns (StatsResponse) {}
     rpc NewTx (RpcTransaction) returns (RpcTransactionResponse) {}
+
     rpc GetBalance (GetBalanceRequest) returns (GetBalanceResponse) {}
+    rpc GetSpendableCollateral (GetSpendableCollateralRequest) returns (GetSpendableCollateralResponse) {}
 
     rpc PlaceMakerOrder (PlaceMakerOrderRequest) returns (RpcTransactionResponse) {}
     rpc PlaceTakerOrder (PlaceTakerOrderRequest) returns (RpcTransactionResponse) {}
