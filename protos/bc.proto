@@ -55,6 +55,12 @@ message GetBalanceResponse {
     string unit = 5;
 }
 
+message UnlockCollateralRequest {
+  OutPoint outpoint = 1;
+  string  bc_address = 2;
+  string  bc_private_key_hex = 3;
+}
+
 message MakerOrderInfo {
     uint64  shift_starts_at = 1;
     uint64  deposit_ends_at = 2;
@@ -197,6 +203,8 @@ service Bc {
 
     rpc GetBalance (GetBalanceRequest) returns (GetBalanceResponse) {}
     rpc GetSpendableCollateral (GetSpendableCollateralRequest) returns (GetSpendableCollateralResponse) {}
+
+    rpc UnlockCollateral (UnlockCollateralRequest) returns (RpcTransactionResponse) {}
 
     rpc PlaceMakerOrder (PlaceMakerOrderRequest) returns (RpcTransactionResponse) {}
     rpc PlaceTakerOrder (PlaceTakerOrderRequest) returns (RpcTransactionResponse) {}
