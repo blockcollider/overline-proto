@@ -75,6 +75,24 @@ message OutPoint {
   uint64 index = 3;
 }
 
+message WalletOutPoint {
+  OutPoint outpoint = 1;
+  bytes callbackScript = 2;
+  bytes originalScript = 3;
+  uint64 blockHeight = 4;
+}
+
+
+message WalletData {
+  uint64 blockHeight = 1;
+  string blockHash = 2;
+  repeated WalletOutPoint unconfirmedSpendableOutPoints = 3;
+  repeated WalletOutPoint spendableOutPoints = 4;
+  repeated WalletOutPoint collateralizedMakerOutPoints = 5;
+  repeated WalletOutPoint collateralizedMatchedOutPoints = 6;
+  repeated WalletOutPoint collateralizedSpendableOutPoints = 7;
+}
+
 message Transaction {
   uint64 version = 1;
   string nonce = 2; // <rnd>+<minerAddess>
