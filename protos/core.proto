@@ -93,6 +93,43 @@ message WalletData {
   repeated WalletOutPoint collateralizedSpendableOutPoints = 7;
 }
 
+message OpenOrder {
+  Outpoint outpoint = 1;
+  bytes originalValue = 2;
+  bytes script = 3;
+  bytes unit = 4;
+  uint64 blockHeight = 5;
+}
+
+message OpenOrders {
+  repeated OpenOrder orders = 1;
+  uint64 blockHeight = 2;
+}
+
+message MatchedOrder {
+  Outpoint outpoint = 1;
+  bytes makerScript = 2;
+  bytes takerScript = 3;
+  uint64 blockHeightMaker = 4;
+  uint64 blockHeightTaker = 5;
+}
+
+message MatchedOrders {
+  repeated MatchedOrder orders = 1;
+  uint64 blockHeight = 2;
+}
+
+message HistoricalOrder {
+  MatchedOrder order = 1;
+  boolean takerSettled = 2;
+  boolean makerSettled = 3;
+}
+
+message HistoricalOrders {
+  repeated HistoricalOrder orders = 1;
+  uint64 blockHeight = 2;
+}
+
 message Transaction {
   uint64 version = 1;
   string nonce = 2; // <rnd>+<minerAddess>
