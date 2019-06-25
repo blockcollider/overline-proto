@@ -62,9 +62,9 @@ message UnlockCollateralRequest {
 }
 
 message MakerOrderInfo {
-    uint64  shift_starts_at = 1;
-    uint64  deposit_ends_at = 2;
-    uint64  settle_ends_at = 3;
+    uint64  trade_height = 1;
+    uint64  deposit_height = 2;
+    uint64  settle_height = 3;
     string  pays_chain_id = 4;
     string  wants_chain_id = 5;
     string  wants_address = 6;
@@ -75,23 +75,17 @@ message MakerOrderInfo {
     string  nrg_unit = 11;
     string  tx_hash = 12;
     uint64  tx_output_index = 13;
-    string  block_hash = 14;
-    uint64  block_height = 15;
-    bool    is_settled = 16;
-    uint64  block_height_has_original_maker_tx = 17;
+    bool    is_settled = 14;
 }
 
 message TakerOrderInfo {
     string  sends_address = 1;
     string  wants_address = 2;
-    string  maker_tx_hash = 3;
-    uint32  maker_tx_output_index = 4;
-    string  double_hashed_bc_address = 5;
-    string  collateralized_nrg = 6;
-    string  block_hash = 7;
-    uint64  block_height = 8;
-    bool    is_settled = 9;
-    string  tx_hash = 10;
+    string  double_hashed_bc_address = 3;
+    bool    is_settled = 4;
+    string  tx_hash = 5;
+    uint64  tx_output_index = 6;
+    uint64  total_collateral = 7;
 }
 
 message MatchedOpenOrder {
@@ -100,7 +94,7 @@ message MatchedOpenOrder {
 }
 
 message GetOpenOrdersResponse {
-    repeated  MakerOrderInfo open_orders = 1;
+    repeated  MakerOrderInfo orders = 1;
 }
 
 message GetMatchedOrdersRequest {

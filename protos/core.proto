@@ -77,57 +77,60 @@ message OutPoint {
 
 message WalletOutPoint {
   OutPoint outpoint = 1;
-  bytes callbackScript = 2;
-  bytes originalScript = 3;
-  uint64 blockHeight = 4;
+  bytes callback_script = 2;
+  bytes original_script = 3;
+  uint64 block_height = 4;
 }
 
 
 message WalletData {
-  uint64 blockHeight = 1;
-  string blockHash = 2;
-  repeated WalletOutPoint unconfirmedSpendableOutPoints = 3;
-  repeated WalletOutPoint spendableOutPoints = 4;
-  repeated WalletOutPoint collateralizedMakerOutPoints = 5;
-  repeated WalletOutPoint collateralizedMatchedOutPoints = 6;
-  repeated WalletOutPoint collateralizedSpendableOutPoints = 7;
+  uint64 block_height = 1;
+  string block_hash = 2;
+  repeated WalletOutPoint unconfirmed_spendable_outpoints = 3;
+  repeated WalletOutPoint spendable_outpoints = 4;
+  repeated WalletOutPoint collateralized_maker_outpoints = 5;
+  repeated WalletOutPoint collateralized_matched_outpoints = 6;
+  repeated WalletOutPoint collateralized_spendable_outpoints = 7;
 }
 
 message OpenOrder {
-  Outpoint outpoint = 1;
-  bytes originalValue = 2;
+  OutPoint outpoint = 1;
+  bytes original_value = 2;
   bytes script = 3;
   bytes unit = 4;
-  uint64 blockHeight = 5;
+  uint64 block_height = 5;
 }
 
 message OpenOrders {
   repeated OpenOrder orders = 1;
-  uint64 blockHeight = 2;
+  uint64 block_height = 2;
+  string block_hash = 3;
 }
 
 message MatchedOrder {
-  Outpoint outpoint = 1;
-  bytes makerScript = 2;
-  bytes takerScript = 3;
-  uint64 blockHeightMaker = 4;
-  uint64 blockHeightTaker = 5;
+  OutPoint taker_outpoint = 1;
+  bytes taker_output_script = 2;
+  bytes taker_input_script = 3;
+  OpenOrder maker_order = 4;
+  uint64 block_height_taker = 5;
 }
 
 message MatchedOrders {
   repeated MatchedOrder orders = 1;
-  uint64 blockHeight = 2;
+  uint64 block_height = 2;
+  string block_hash = 3;
 }
 
 message HistoricalOrder {
   MatchedOrder order = 1;
-  boolean takerSettled = 2;
-  boolean makerSettled = 3;
+  bool taker_settled = 2;
+  bool maker_settled = 3;
 }
 
 message HistoricalOrders {
   repeated HistoricalOrder orders = 1;
-  uint64 blockHeight = 2;
+  uint64 block_height = 2;
+  string block_hash = 3;
 }
 
 message Transaction {
