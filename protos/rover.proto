@@ -9,7 +9,7 @@ service Rover {
     rpc Join (RoverIdent) returns (stream RoverMessage) {}
 
     // Rovers sends block collected from the respective network
-    rpc CollectBlock (Block) returns (Null) {}
+    rpc CollectBlock (stream Block) returns (Null) {}
 
     // Rover reports back sync status
     rpc ReportSyncStatus (RoverSyncStatus) returns (Null) {}
