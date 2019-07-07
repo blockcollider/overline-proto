@@ -85,7 +85,7 @@ message TakerOrderInfo {
     bool    is_settled = 4;
     string  tx_hash = 5;
     uint64  tx_output_index = 6;
-    uint64  total_collateral = 7;
+    string  total_collateral = 7;
 }
 
 message MatchedOpenOrder {
