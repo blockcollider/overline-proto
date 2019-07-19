@@ -250,10 +250,9 @@ service Bc {
     rpc Help (Null) returns (HelpResponse) {}
     rpc Stats (Null) returns (StatsResponse) {}
     rpc NewTx (RpcTransaction) returns (RpcTransactionResponse) {}
+    rpc SendTX (Transaction) returns (RpcTransactionResponse) {}
 
     rpc GetBalance (GetBalanceRequest) returns (GetBalanceResponse) {}
-    rpc GetWallet (GetBalanceRequest) returns (WalletData) {}
-
     rpc GetSpendableCollateral (GetSpendableCollateralRequest) returns (GetSpendableCollateralResponse) {}
 
     rpc UnlockCollateral (UnlockCollateralRequest) returns (RpcTransactionResponse) {}
