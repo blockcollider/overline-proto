@@ -247,6 +247,9 @@ service Bc {
     rpc GetTx(GetTxRequest) returns (Transaction) {}
     rpc GetMarkedTx(GetMarkedTxRequest) returns (MarkedTransaction) {}
 
+    rpc GetBlockForTx(GetTxRequest) returns (BcBlock) {}
+    rpc GetRoveredBlockForMarkedTx(GetMarkedTxRequest) returns (Block) {}
+
     rpc Help (Null) returns (HelpResponse) {}
     rpc Stats (Null) returns (StatsResponse) {}
     rpc NewTx (RpcTransaction) returns (RpcTransactionResponse) {}
