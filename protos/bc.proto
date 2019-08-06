@@ -218,6 +218,10 @@ message GetRoveredBlocksRequest {
     uint32 end_height = 3;
 }
 
+message GetRawMempoolResponse {
+    repeated Transaction transactions = 1;
+}
+
 
 message GetRoveredBlocksResponse {
     repeated Block blocks = 1;
@@ -247,6 +251,7 @@ service Bc {
     rpc GetTx(GetTxRequest) returns (Transaction) {}
     rpc GetMarkedTx(GetMarkedTxRequest) returns (MarkedTransaction) {}
 
+    rpc GetRawMempool(Null) returns (GetRawMempoolResponse) {}
     rpc GetBlockForTx(GetTxRequest) returns (BcBlock) {}
     rpc GetRoveredBlockForMarkedTx(GetMarkedTxRequest) returns (Block) {}
 
