@@ -30,6 +30,7 @@ message RoverSyncStatus {
 enum RoverMessageType {
     FetchBlock = 0;
     RequestResync = 1;
+    OpenBlockRangeRequest = 2;
 }
 
 message RoverMessage {
