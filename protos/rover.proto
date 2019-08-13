@@ -32,12 +32,11 @@ message RoverSyncStatus {
 
 message RoverBlockRange {
     string rover_name = 1;
-    uint64 highestHeight = 2;
-    uint64 lowestHeight = 3;
-    string highestHash = 4;
-    string lowestHash = 5;
+    uint64 highest_height = 2;
+    uint64 lowest_height = 3;
+    string highest_hash = 4;
+    string lowest_hash = 5;
 }
-
 
 enum RoverMessageType {
     FetchBlock = 0;
