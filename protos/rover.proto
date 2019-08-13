@@ -14,6 +14,9 @@ service Rover {
     // Rover reports back sync status
     rpc ReportSyncStatus (RoverSyncStatus) returns (Null) {}
 
+    // Rover submits block range 
+    rpc ReportBlockRange (RoverBlockRange) returns (Null) {}
+
     // Check is TX reciveved in rover is watched and before settlement height
     rpc IsBeforeSettleHeight(SettleTxCheckReq) returns (SettleTxCheckResponse) {}
 }
@@ -26,6 +29,15 @@ message RoverSyncStatus {
     string rover_name = 1;
     bool status = 2;
 }
+
+message RoverBlockRange {
+    string rover_name = 1;
+    uint64 highestHeight = 2;
+    uint64 lowestHeight = 3;
+    string highestHash = 4;
+    string lowestHash = 5;
+}
+
 
 enum RoverMessageType {
     FetchBlock = 0;
