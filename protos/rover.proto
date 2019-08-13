@@ -56,6 +56,14 @@ message RoverMessage {
         Block to_block = 2;
     }
 
+    message RoverBlockRange {
+        string rover_name = 1;
+        uint64 highest_height = 2;
+        uint64 lowest_height = 3;
+        string highest_hash = 4;
+        string lowest_hash = 5;
+    }
+
     message Resync {
         message Interval {
             Block from_block = 1;
