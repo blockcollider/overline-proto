@@ -242,7 +242,7 @@ message GetOutPointRequest {
 }
 
 message GetTradeStatusResponse {
-    bool received = 1;
+    bool sent = 1;
 }
 
 message GetOutPointStatusResponse {
