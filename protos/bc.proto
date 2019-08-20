@@ -268,7 +268,7 @@ service Bc {
     rpc GetOutpointStatus(GetOutPointRequest) returns (GetOutPointStatusResponse) {}
 
     rpc GetRawMempool(Null) returns (GetRawMempoolResponse) {}
-    rpc GetBlockForTx(GetTxRequest) returns (BcBlock) {}
+    rpc GetBlockByTx(GetTxRequest) returns (BcBlock) {}
     rpc GetRoveredBlockForMarkedTx(GetMarkedTxRequest) returns (Block) {}
 
     rpc Help (Null) returns (HelpResponse) {}
