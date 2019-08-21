@@ -63,15 +63,16 @@ message MakerOrderInfo {
     uint64  settle_height = 3;
     string  pays_chain_id = 4;
     string  wants_chain_id = 5;
-    string  wants_address = 6;
-    string  wants_unit = 7;
+    string  pays_address = 6;
+    string  wants_address = 7;
     string  pays_unit = 8;
-    string  double_hashed_bc_address = 9;
-    string  collateralized_nrg = 10;
-    string  nrg_unit = 11;
-    string  tx_hash = 12;
-    uint32  tx_output_index = 13;
-    bool    is_settled = 14;
+    string  wants_unit = 9;
+    string  double_hashed_bc_address = 10;
+    string  collateralized_nrg = 11;
+    string  nrg_unit = 12;
+    string  tx_hash = 13;
+    uint32  tx_output_index = 14;
+    bool    is_settled = 15;
 }
 
 message TakerOrderInfo {
