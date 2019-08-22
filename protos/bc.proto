@@ -51,6 +51,10 @@ message GetBalanceResponse {
     string unit = 5;
 }
 
+message GetWalletResponse {
+    WalletData wallet = 1;
+}
+
 message UnlockCollateralRequest {
   OutPoint outpoint = 1;
   string  bc_address = 2;
@@ -282,6 +286,8 @@ service Bc {
     rpc SendTx (Transaction) returns (RpcTransactionResponse) {}
 
     rpc GetBalance (GetBalanceRequest) returns (GetBalanceResponse) {}
+    rpc GetWallet (GetBalanceRequest) returns (GetWalletResponse) {}
+
     rpc GetSpendableCollateral (GetSpendableCollateralRequest) returns (GetSpendableCollateralResponse) {}
 
     rpc UnlockCollateral (UnlockCollateralRequest) returns (RpcTransactionResponse) {}
