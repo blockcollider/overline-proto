@@ -60,8 +60,8 @@ message UnlockCollateralRequest {
 
 message MakerOrderInfo {
     uint64  trade_height = 1;
-    uint64  deposit_height = 2;
-    uint64  settle_height = 3;
+    uint64  deposit = 2;
+    uint64  settlement = 3;
     uint64  shift_maker = 4;
     uint64  shift_taker = 5;
     string  sends_from_chain = 6;
