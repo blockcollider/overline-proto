@@ -88,6 +88,20 @@ message TakerOrderInfo {
     string  total_collateral = 7;
 }
 
+message MatchedTx {
+    string hash = 1;
+    uint32 output_index = 2;
+    string chain = 3;
+    string sends_from = 4;
+    string receives_to = 5;
+    uint64 amount = 6;
+    bool   is_maker = 7;
+}
+
+message MatchedTxs {
+    repeated MatchedTx txs = 1;
+}
+
 message MatchedOpenOrder {
     MakerOrderInfo maker = 1;
     TakerOrderInfo taker = 2;
