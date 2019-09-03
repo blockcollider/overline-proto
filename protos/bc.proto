@@ -238,6 +238,22 @@ message GetBlocksResponse {
     repeated BcBlock blocks = 1;
 }
 
+message Transfer{
+    string from = 1;
+    string to = 2;
+    string amount = 3;
+    string tx_hash = 4;
+    uint32 tx_output_index = 5;
+}
+
+message TransferResponse {
+    repeated Transfer transfers = 1;
+}
+
+message TransferRequest {
+    string address = 1;
+}
+
 message GetRoveredBlocksRequest {
     string blockchain = 1;
     uint32 start_height = 2;
@@ -307,6 +323,8 @@ service Bc {
     rpc GetSpendableCollateral (GetSpendableCollateralRequest) returns (GetSpendableCollateralResponse) {}
 
     rpc UnlockCollateral (UnlockCollateralRequest) returns (RpcTransactionResponse) {}
+
+    rpc GetTransfers (TransferRequest) returns (TransferResponse) {}
 
     rpc PlaceMakerOrder (PlaceMakerOrderRequest) returns (RpcTransactionResponse) {}
     rpc PlaceTakerOrder (PlaceTakerOrderRequest) returns (RpcTransactionResponse) {}
