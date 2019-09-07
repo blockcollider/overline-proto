@@ -87,6 +87,7 @@ message TakerOrderInfo {
     uint32  tx_output_index = 6;
     string  total_collateral = 7;
     uint64  trade_height = 8;
+    uint64  timestamp = 9;
 }
 
 message MatchedTx {
