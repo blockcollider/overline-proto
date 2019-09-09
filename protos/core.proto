@@ -126,6 +126,7 @@ message HistoricalOrder {
   MatchedOrder order = 1;
   bool taker_settled = 2;
   bool maker_settled = 3;
+  bool unlocked = 4;
 }
 
 message HistoricalOrders {

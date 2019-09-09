@@ -107,6 +107,7 @@ message MatchedTxs {
 message MatchedOpenOrder {
     MakerOrderInfo maker = 1;
     TakerOrderInfo taker = 2;
+    bool unlocked = 7;
 }
 
 message GetOpenOrdersResponse {
