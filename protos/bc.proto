@@ -257,6 +257,7 @@ message Transfer{
     string tx_hash = 4;
     uint32 tx_output_index = 5;
     uint64 timestamp = 6;
+    uint64 height = 7;
 }
 
 message TransferResponse {
