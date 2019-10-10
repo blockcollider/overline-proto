@@ -82,15 +82,15 @@ message WalletOutPoint {
   uint64 block_height = 4;
 }
 
-
 message WalletData {
   uint64 block_height = 1;
   string block_hash = 2;
   repeated WalletOutPoint unconfirmed_spendable_outpoints = 3;
   repeated WalletOutPoint spendable_outpoints = 4;
   repeated WalletOutPoint collateralized_maker_outpoints = 5;
-  repeated WalletOutPoint collateralized_matched_outpoints = 6;
-  repeated WalletOutPoint collateralized_spendable_outpoints = 7;
+  repeated WalletOutPoint collateralized_unmatched_outpoints = 6;
+  repeated WalletOutPoint collateralized_matched_outpoints = 7;
+  repeated WalletOutPoint collateralized_spendable_outpoints = 8;
 }
 
 message OpenOrder {

@@ -47,8 +47,7 @@ message GetBalanceResponse {
     string confirmed = 1;
     string unconfirmed = 2;
     string collateralized = 3;
-    string collateralizedSpendable = 4;
-    string unit = 5;
+    string unlockable = 4;
 }
 
 message UnlockCollateralRequest {
