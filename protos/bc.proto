@@ -101,21 +101,7 @@ message TakerOrderInfo {
     uint64  timestamp = 9;
 }
 
-message MatchedTx {
-    string hash = 1;
-    uint32 output_index = 2;
-    string chain = 3;
-    string sends_from = 4;
-    string receives_to = 5;
-    string amount = 6;
-    bool   is_maker = 7;
-}
-
-message MatchedTxs {
-    repeated MatchedTx txs = 1;
-}
-
-message MatchedOpenOrder {
+message MatchedOrderInfo {
     MakerOrderInfo maker = 1;
     TakerOrderInfo taker = 2;
     bool unlocked = 7;
@@ -130,7 +116,7 @@ message GetMatchedOrdersRequest {
 }
 
 message GetMatchedOrdersResponse {
-    repeated MatchedOpenOrder orders = 1;
+    repeated MatchedOrderInfo orders = 1;
 }
 
 message PlaceMakerOrderRequest {
@@ -353,6 +339,7 @@ service Bc {
     rpc CalculateTakerFee (CalculateTakerFeeRequest) returns (FeeResponse) {}
 
     rpc GetOpenOrders (Null) returns (GetOpenOrdersResponse) {}
+    rpc GetUnmatchedOrders (GetBalanceRequest) returns (GetOpenOrdersResponse) {}
     rpc GetMatchedOrders (GetMatchedOrdersRequest) returns (GetMatchedOrdersResponse) {}
 
     rpc GetBlake2bl (GetBlake2blRequest) returns (GetBlake2blResponse) {}
