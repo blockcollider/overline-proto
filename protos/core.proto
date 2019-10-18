@@ -28,8 +28,8 @@ message MarkedTransaction {
 }
 
 message BlockchainHeaders {
-  //  repeated BlockchainHeader btc = 1;
-  //  repeated BlockchainHeader eth = 2;
+    repeated BlockchainHeader btc = 1;
+    repeated BlockchainHeader eth = 2;
     repeated BlockchainHeader lsk = 3;
     repeated BlockchainHeader neo = 4;
     repeated BlockchainHeader wav = 5;
