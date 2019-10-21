@@ -116,6 +116,7 @@ message GetOrderbookUpdateResponse {
     repeated string matched_orders_to_remove = 2;
     repeated MakerOrderInfo open_orders_to_add = 3;
     repeated MatchedOrderInfo matched_orders_to_add = 4;
+    repeated MatchedOrderInfo historical_orders_to_add = 5;
 }
 
 message GetMatchedOrdersRequest {
