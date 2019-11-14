@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package bc;
+package bc.rover;
 
 import "core.proto";
 
@@ -9,13 +9,13 @@ service Rover {
     rpc Join (RoverIdent) returns (stream RoverMessage) {}
 
     // Rovers sends block collected from the respective network
-    rpc CollectBlock (stream Block) returns (Null) {}
+    rpc CollectBlock (stream core.Block) returns (core.Null) {}
 
     // Rover reports back sync status
-    rpc ReportSyncStatus (RoverSyncStatus) returns (Null) {}
+    rpc ReportSyncStatus (RoverSyncStatus) returns (core.Null) {}
 
     // Rover submits block range
-    rpc ReportBlockRange (RoverMessage.RoverBlockRange) returns (Null) {}
+    rpc ReportBlockRange (RoverMessage.RoverBlockRange) returns (core.Null) {}
 
     // Check is TX reciveved in rover is watched and before settlement height
     rpc IsBeforeSettleHeight(SettleTxCheckReq) returns (SettleTxCheckResponse) {}
@@ -50,13 +50,13 @@ message RoverMessage {
     }
 
     message FetchBlock {
-        Block from_block = 1;
-        Block to_block = 2;
+        core.Block from_block = 1;
+        core.Block to_block = 2;
     }
 
     message LatestBlock {
         string rover_name = 1;
-        Block block = 2;
+        core.Block block = 2;
     }
 
     message RoverBlockRange {
@@ -70,11 +70,11 @@ message RoverMessage {
 
     message Resync {
         message Interval {
-            Block from_block = 1;
-            Block to_block = 2;
+            core.Block from_block = 1;
+            core.Block to_block = 2;
         }
         // latest know block we have in storage, can be empty
-        Block latest_block = 1;
+        core.Block latest_block = 1;
         repeated Interval intervals = 2;
     }
 }
@@ -96,16 +96,16 @@ message SettleTxCheckReq {
 }
 
 message SettleTxCheckResponse {
-  repeated MarkedTransaction marked_transactions = 1;
+  repeated core.MarkedTransaction marked_transactions = 1;
 }
 
 message MarkedTxsReq {
-  repeated MarkedTransaction marked_transactions = 1;
+  repeated core.MarkedTransaction marked_transactions = 1;
   string block_hash = 2;
   string blockchain = 3;
 }
 
 message QueuedMarkedTxsResponse {
-  repeated MarkedTransaction marked_transactions = 1;
+  repeated core.MarkedTransaction marked_transactions = 1;
   string block_hash = 2;
 }
