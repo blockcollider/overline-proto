@@ -49,6 +49,14 @@ message TransferResponse {
     repeated Transfer transfers = 1;
 }
 
+message GetUtxoLengthRequest{
+    string script_type = 1;
+}
+
+message GetUtxoLengthResponse{
+    uint32 length = 1;
+}
+
 message GetSpendableCollateralRequest {
     string address = 1;
 }
@@ -128,10 +136,6 @@ message GetOrderbookUpdateResponse {
     repeated MakerOrderInfo open_orders_to_add = 3;
     repeated MatchedOrderInfo matched_orders_to_add = 4;
     repeated MatchedOrderInfo historical_orders_to_add = 5;
-}
-
-message GetMatchedOrdersRequest {
-    bool only_settled = 1;
 }
 
 message GetMatchedOrdersResponse {
@@ -264,8 +268,12 @@ service Bc {
 
     rpc GetOpenOrders (Null) returns (GetOpenOrdersResponse) {}
     rpc GetUnmatchedOrders (GetBalanceRequest) returns (GetOpenOrdersResponse) {}
-    rpc GetMatchedOrders (GetMatchedOrdersRequest) returns (GetMatchedOrdersResponse) {}
+    rpc GetMatchedOrders (Null) returns (GetMatchedOrdersResponse) {}
+
     rpc GetOrderbookUpdate (Null) returns (GetOrderbookUpdateResponse) {}
+
+    rpc GetUtxoLength (GetUtxoLengthRequest) returns (GetUtxoLengthResponse) {}
+    rpc GetStxoLength (GetUtxoLengthRequest) returns (GetUtxoLengthResponse) {}
 
     rpc GetBlake2bl (GetBlake2blRequest) returns (GetBlake2blResponse) {}
     rpc GetBcAddressViaVanity (VanityConvertRequest) returns (VanityConvertResponse) {}
