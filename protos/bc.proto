@@ -224,7 +224,7 @@ message GetOutPointRequest {
 }
 
 message GetTradeStatusResponse {
-    bool sent = 1;
+    uint32 status = 1;
 }
 
 message GetOutPointStatusResponse {
