@@ -248,6 +248,7 @@ service Bc {
 
     rpc GetTradeStatus(GetOutPointRequest) returns (GetTradeStatusResponse) {}
     rpc GetOutpointStatus(GetOutPointRequest) returns (GetOutPointStatusResponse) {}
+    rpc GetTxClaimedBy(GetOutPointRequest) returns (Transaction) {}
 
     rpc GetRawMempool(Null) returns (GetRawMempoolResponse) {}
     rpc GetBlockByTx(GetTxRequest) returns (BcBlock) {}
@@ -263,6 +264,7 @@ service Bc {
     rpc GetSpendableOutpoints(GetBalanceRequest) returns (WalletData) {}
     rpc GetSpendableCollateral (GetSpendableCollateralRequest) returns (GetSpendableCollateralResponse) {}
     rpc GetUnlockTakerTxParams (GetUnlockTakerTxParamsRequest) returns (GetUnlockTakerTxParamsResponse) {}
+
 
     rpc GetTransfers (TransferRequest) returns (TransferResponse) {}
 
