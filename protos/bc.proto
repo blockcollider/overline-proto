@@ -231,6 +231,10 @@ message GetOutPointStatusResponse {
     bool unspent = 1;
 }
 
+message CurrentWork {
+    string work = 1;
+}
+
 service Bc {
 
     rpc GetRoveredBlockHash(GetRoveredBlockHashRequest) returns (Block) {}
@@ -279,4 +283,5 @@ service Bc {
 
     rpc GetBlake2bl (GetBlake2blRequest) returns (GetBlake2blResponse) {}
     rpc GetBcAddressViaVanity (VanityConvertRequest) returns (VanityConvertResponse) {}
+    rpc GetCurrentWork (Null) returns (CurrentWork) {}
 }
