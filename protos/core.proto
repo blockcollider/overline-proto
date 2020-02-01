@@ -119,7 +119,7 @@ message HistoricalOrder {
 
 message Transaction {
   uint64 version = 1;
-  string nonce = 2; // <rnd>+<minerAddess>
+  string nonce = 2; // <rnd>+<minerAddess> / <tx mine work>
   string hash = 3;
   string overline = 4;
   uint64 nin_count = 5;
