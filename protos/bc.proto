@@ -43,6 +43,7 @@ message Transfer{
 
 message TransferRequest {
     string address = 1;
+    uint32 max = 2;
 }
 
 message TransferResponse {
