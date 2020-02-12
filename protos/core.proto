@@ -55,13 +55,13 @@ message BcBlock {
     uint64 emblem_weight = 17;
     string emblem_chain_fingerprint_root = 18;
     string emblem_chain_address = 19;
-    uint64 tx_count = 19;
-    repeated Transaction txs = 20;
-    uint64 tx_fee_base = 21;
-    uint64 tx_distance_sum_limit = 22;
-    uint64 blockchain_headers_count = 23;
-    BlockchainHeaders blockchain_headers = 24;
-    string blockchain_fingerprints_root = 25;
+    uint64 tx_count = 20;
+    repeated Transaction txs = 21;
+    uint64 tx_fee_base = 22;
+    uint64 tx_distance_sum_limit = 23;
+    uint64 blockchain_headers_count = 24;
+    BlockchainHeaders blockchain_headers = 25;
+    string blockchain_fingerprints_root = 26;
 }
 
 message OutPoint {
