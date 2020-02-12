@@ -50,23 +50,18 @@ message BcBlock {
     string total_distance = 12;
     string nonce = 13;
     uint64 nrg_grant = 14;
-    string target_hash = 15;
-    uint64 target_height = 16;
-    string target_miner = 17;
-    string target_signature = 18;
-    uint64 twn = 19;
-    repeated string tws = 20;
-    uint64 emblem_weight = 21;
-    string emblem_chain_block_hash = 22;
-    string emblem_chain_fingerprint_root = 23;
-    string emblem_chain_address = 24;
-    uint64 tx_count = 25;
-    repeated Transaction txs = 26;
-    uint64 tx_fee_base = 27;
-    uint64 tx_distance_sum_limit = 28;
-    uint64 blockchain_headers_count = 29;
-    BlockchainHeaders blockchain_headers = 30;
-    string blockchain_fingerprints_root = 31;
+    uint64 twn = 15;
+    repeated string tws = 16;
+    uint64 emblem_weight = 17;
+    string emblem_chain_fingerprint_root = 18;
+    string emblem_chain_address = 19;
+    uint64 tx_count = 19;
+    repeated Transaction txs = 20;
+    uint64 tx_fee_base = 21;
+    uint64 tx_distance_sum_limit = 22;
+    uint64 blockchain_headers_count = 23;
+    BlockchainHeaders blockchain_headers = 24;
+    string blockchain_fingerprints_root = 25;
 }
 
 message OutPoint {
