@@ -71,10 +71,11 @@ message GetBalanceRequest {
 }
 
 message GetBalanceResponse {
-    string confirmed = 1;
-    string unconfirmed = 2;
-    string collateralized = 3;
-    string unlockable = 4;
+    uint32 height = 1;
+    string confirmed = 2;
+    string unconfirmed = 3;
+    string collateralized = 4;
+    string unlockable = 5;
 }
 
 message GetUnlockTakerTxParamsRequest {
