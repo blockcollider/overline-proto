@@ -238,6 +238,7 @@ service Bc {
 
     rpc GetBlockHash(GetBlockHashRequest) returns (BcBlock) {}
     rpc GetBlockHeight(GetBlockHeightRequest) returns (BcBlock) {}
+    rpc GetBlocksHeight(GetBlockHeightRequest) returns (GetBlocksResponse) {}
     rpc GetBlocks(GetBlocksRequest) returns (GetBlocksResponse) {}
     rpc GetLatestBlock(Null) returns (BcBlock) {}
 
