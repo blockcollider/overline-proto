@@ -234,6 +234,10 @@ message CurrentWork {
     string work = 1;
 }
 
+message SettingsResponse {
+    string ngrok_tunnel = 1;
+}
+
 service Bc {
 
     rpc GetRoveredBlockHash(GetRoveredBlockHashRequest) returns (Block) {}
@@ -260,6 +264,7 @@ service Bc {
 
     rpc Help (Null) returns (HelpResponse) {}
     rpc Stats (Null) returns (StatsResponse) {}
+    rpc GetSettings (Null) returns (SettingsResponse) {}
     rpc NewTx (RpcTransaction) returns (RpcTransactionResponse) {}
     rpc SendTx (Transaction) returns (RpcTransactionResponse) {}
 
