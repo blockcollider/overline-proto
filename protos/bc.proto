@@ -236,6 +236,7 @@ message CurrentWork {
 
 message SettingsResponse {
     string ngrok_tunnel = 1;
+    string build_version = 2;
 }
 
 service Bc {
