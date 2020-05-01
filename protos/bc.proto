@@ -147,7 +147,7 @@ message GetMatchedOrdersResponse {
 
 message GetHistoricalOrdersResponse {
     repeated MatchedOrderInfo orders = 1;
-    uint64 nextBlock = 2;
+    uint64 next_block = 2;
 }
 
 message TakerOrder {
