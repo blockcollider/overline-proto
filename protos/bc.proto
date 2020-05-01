@@ -292,7 +292,7 @@ service Bc {
     rpc GetTransfers (TransferRequest) returns (TransferResponse) {}
 
     rpc GetOpenOrders (GetSpendableCollateralRequest) returns (GetOpenOrdersResponse) {}
-    rpc GetMatchedOrders (GetBalanceRequest) returns (GetMatchedOrdersResponse) {}
+    rpc GetMatchedOrders (GetSpendableCollateralRequest) returns (GetMatchedOrdersResponse) {}
     rpc GetHistoricalOrders (GetHistoryRequest) returns (GetHistoricalOrdersResponse) {}
 
     rpc GetUnmatchedOrders (GetBalanceRequest) returns (GetOpenOrdersResponse) {}
