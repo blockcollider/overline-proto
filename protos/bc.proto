@@ -49,6 +49,7 @@ message TransferRequest {
 
 message GetHistoryRequest {
     string from = 1;
+    uint64 max = 2;
 }
 
 message TransferResponse {
@@ -142,6 +143,11 @@ message GetOpenOrdersResponse {
 
 message GetMatchedOrdersResponse {
     repeated MatchedOrderInfo orders = 1;
+}
+
+message GetHistoricalOrdersResponse {
+    repeated MatchedOrderInfo orders = 1;
+    uint64 nextBlock = 2;
 }
 
 message TakerOrder {
@@ -287,7 +293,8 @@ service Bc {
 
     rpc GetOpenOrders (GetSpendableCollateralRequest) returns (GetOpenOrdersResponse) {}
     rpc GetMatchedOrders (GetBalanceRequest) returns (GetMatchedOrdersResponse) {}
-    rpc GetHistoricalOrders (GetHistoryRequest) returns (GetMatchedOrdersResponse) {}
+    rpc GetHistoricalOrders (GetHistoryRequest) returns (GetHistoricalOrdersResponse) {}
+
     rpc GetUnmatchedOrders (GetBalanceRequest) returns (GetOpenOrdersResponse) {}
 
     rpc GetUTXOLength (GetUtxoLengthRequest) returns (GetUtxoLengthResponse) {}
