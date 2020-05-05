@@ -111,12 +111,13 @@ message MakerOrderInfo {
     string  receives_unit = 11;
     string  double_hashed_bc_address = 12;
     string  collateralized_nrg = 13;
-    string  nrg_unit = 14;
-    string  tx_hash = 15;
-    uint32  tx_output_index = 16;
-    bool    is_settled = 17;
-    string  fixed_unit_fee = 18;
-    uint32  base = 19;
+    string  original_nrg = 14;
+    string  nrg_unit = 15;
+    string  tx_hash = 16;
+    uint32  tx_output_index = 17;
+    bool    is_settled = 18;
+    string  fixed_unit_fee = 19;
+    uint32  base = 20;
 }
 
 message TakerOrderInfo {
