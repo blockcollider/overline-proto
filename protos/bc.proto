@@ -253,12 +253,17 @@ message SettingsResponse {
     string build_version = 2;
 }
 
+message GetNrgSupplyResponse {
+    string amount = 1;
+}
 service Bc {
 
     rpc GetRoveredBlockHash(GetRoveredBlockHashRequest) returns (Block) {}
     rpc GetRoveredBlockHeight(GetRoveredBlockHeightRequest) returns (Block) {}
     rpc GetRoveredBlocks(GetRoveredBlocksRequest) returns (GetRoveredBlocksResponse) {}
     rpc GetLatestRoveredBlocks(Null) returns (GetRoveredBlocksResponse) {}
+    rpc GetNrgSupply(Null) returns (GetNrgSupplyResponse) {}
+
 
     rpc GetBlockHash(GetBlockHashRequest) returns (BcBlock) {}
     rpc GetBlockHeight(GetBlockHeightRequest) returns (BcBlock) {}
