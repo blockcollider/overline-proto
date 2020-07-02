@@ -172,4 +172,5 @@ message BlockchainHeader {
     string merkle_root = 6;
     uint64 blockchain_confirmations_in_parent_count = 7;
     repeated MarkedTransaction marked_txs = 8;
+    uint64 marked_tx_count = 9;
 }
