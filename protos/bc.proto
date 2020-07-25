@@ -256,6 +256,12 @@ message SettingsResponse {
 message GetNrgSupplyResponse {
     string amount = 1;
 }
+
+message GetMarkedTxs {
+    repeated MarkedTransaction txs = 1;
+}
+
+
 service Bc {
 
     rpc GetRoveredBlockHash(GetRoveredBlockHashRequest) returns (Block) {}
@@ -273,6 +279,8 @@ service Bc {
 
     rpc GetTx(GetTxRequest) returns (Transaction) {}
     rpc GetMarkedTx(GetMarkedTxRequest) returns (MarkedTransaction) {}
+    rpc GetMarkedTransactionsForMatchedOrder(GetOutPointRequest) returns (GetMarkedTxs) {}
+
 
     rpc GetTradeStatus(GetOutPointRequest) returns (GetTradeStatusResponse) {}
     rpc GetOutpointStatus(GetOutPointRequest) returns (GetOutPointStatusResponse) {}
