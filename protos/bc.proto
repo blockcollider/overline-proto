@@ -279,7 +279,7 @@ service Bc {
 
     rpc GetTx(GetTxRequest) returns (Transaction) {}
     rpc GetMarkedTx(GetMarkedTxRequest) returns (MarkedTransaction) {}
-    rpc GetMarkedTransactionsForMatchedOrder(GetOutPointRequest) returns (GetMarkedTxs) {}
+    rpc GetMarkedTxsForMatchedOrder(GetOutPointRequest) returns (GetMarkedTxs) {}
 
 
     rpc GetTradeStatus(GetOutPointRequest) returns (GetTradeStatusResponse) {}
