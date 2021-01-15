@@ -10,6 +10,7 @@ message HelpResponse {
 
 message StatsResponse {
     int64 calls = 1;
+    uint64 latest_gpu_miner_update = 2;
 }
 
 message RpcTransaction {
