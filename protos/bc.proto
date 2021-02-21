@@ -330,4 +330,5 @@ service Bc {
     rpc GetBcAddressViaVanity (VanityConvertRequest) returns (VanityConvertResponse) {}
     rpc GetCurrentWork (Null) returns (CurrentWork) {}
     rpc GetSyncStatus (Null) returns (SyncStatus) {}
+    rpc GetFastSyncStatus (Null) returns (SyncStatus) {}
 }
