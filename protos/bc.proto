@@ -94,6 +94,10 @@ message GetEmbBalanceResponse {
     string balance = 1;
 }
 
+message GetByteFeeResponse {
+    string fee = 1;
+}
+
 message GetBalanceResponse {
     uint32 height = 1;
     string confirmed = 2;
@@ -319,6 +323,7 @@ service Bc {
     rpc GetSpendableCollateral (GetSpendableCollateralRequest) returns (GetSpendableCollateralResponse) {}
     rpc GetUnlockTakerTxParams (GetUnlockTakerTxParamsRequest) returns (GetUnlockTakerTxParamsResponse) {}
 
+    rpc GetByteFeeMultiplier (Null) returns (GetByteFeeResponse) {}
 
     rpc GetTransfers (TransferRequest) returns (TransferResponse) {}
 
