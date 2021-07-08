@@ -19,6 +19,9 @@ service Rover {
 
     // Check is TX reciveved in rover is watched and before settlement height
     rpc IsBeforeSettleHeight(SettleTxCheckReq) returns (SettleTxCheckResponse) {}
+
+    // check if any marked txs have been queued
+    rpc GetQueuedMarkedTxs(MarkedTxsReq) returns (QueuedMarkedTxsResponse) {}
 }
 
 message RoverIdent {
@@ -93,4 +96,14 @@ message SettleTxCheckReq {
 
 message SettleTxCheckResponse {
   repeated MarkedTransaction marked_transactions = 1;
+}
+
+message MarkedTxsReq {
+  repeated MarkedTransaction marked_transactions = 1;
+  string block_hash = 2;
+}
+
+message QueuedMarkedTxsResponse {
+  repeated MarkedTransaction marked_transactions = 1;
+  string block_hash = 2;
 }
