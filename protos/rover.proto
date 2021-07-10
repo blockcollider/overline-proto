@@ -101,6 +101,7 @@ message SettleTxCheckResponse {
 message MarkedTxsReq {
   repeated MarkedTransaction marked_transactions = 1;
   string block_hash = 2;
+  string blockchain = 3;
 }
 
 message QueuedMarkedTxsResponse {
