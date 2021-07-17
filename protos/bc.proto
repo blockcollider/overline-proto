@@ -313,6 +313,7 @@ service Bc {
     rpc Help (Null) returns (HelpResponse) {}
     rpc Stats (Null) returns (StatsResponse) {}
     rpc GetSettings (Null) returns (SettingsResponse) {}
+    rpc NewFeed (RpcFeedTransaction) returns (RpcTransactionResponse) {}
     rpc NewTx (RpcTransaction) returns (RpcTransactionResponse) {}
     rpc SendTx (Transaction) returns (RpcTransactionResponse) {}
 
