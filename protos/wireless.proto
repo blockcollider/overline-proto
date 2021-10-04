@@ -45,7 +45,7 @@ message WirelessBlockchainHeader {
     string previous_hash = 3;
     uint64 timestamp = 4;
     uint64 height = 5;
-    bytes merkle_root = 6; // string in BlockchainHeader (32)
+    string merkle_root = 6;
     uint64 blockchain_confirmations_in_parent_count = 7;
     repeated WirelessMarkedTransaction marked_txs = 8;
     uint64 marked_tx_count = 9;
@@ -67,7 +67,7 @@ message WirelessTransaction {
   uint64 version = 1;
   string nonce = 2; // <rnd>+<minerAddess> / <tx mine work> TODO check if bytes
   bytes hash = 3; // string in Transaction (32)
-  bytes overline = 4; // string in Transaction (0)
+  string overline = 4;
   uint64 nin_count = 5;
   uint64 nout_count = 6;
   repeated WirelessTransactionInput inputs = 7;
