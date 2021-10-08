@@ -111,6 +111,10 @@ message TransactionInput {
   bytes input_script = 3;
 }
 
+message Utxos {
+  repeated Utxo utxo = 1;
+}
+
 message Utxo {
   TransactionOutput output = 1;
   string tx_hash = 2;

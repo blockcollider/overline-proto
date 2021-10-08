@@ -87,6 +87,13 @@ message GetUtxoLengthRequest{
     string address = 2;
 }
 
+message GetUtxosRequest{
+    string script_type = 1;
+    string address = 2;
+    string from = 3;
+    string to = 4;
+}
+
 message GetUtxoLengthResponse{
     uint32 length = 1;
 }
@@ -349,6 +356,7 @@ service Bc {
 
     rpc GetUnmatchedOrders (GetBalanceRequest) returns (GetOpenOrdersResponse) {}
 
+    rpc GetUtxos (GetUtxosRequest) returns (Utxos) {}
     rpc GetUTXOLength (GetUtxoLengthRequest) returns (GetUtxoLengthResponse) {}
     rpc GetSTXOLength (GetUtxoLengthRequest) returns (GetUtxoLengthResponse) {}
 
