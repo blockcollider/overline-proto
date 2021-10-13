@@ -1,0 +1,24 @@
+{
+  "name": "@overline/proto",
+  "version": "0.1.0",
+  "description": "Protobufs for Overline",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "proto": "./node_modules/.bin/grpc_tools_node_protoc --plugin=./node_modules/.bin/protoc-gen-ts --proto_path=protos --js_out=import_style=commonjs,binary:impl/javascript protos/*.proto --grpc_out=impl/javascript --ts_out=\"service=grpc-web:impl/javascript\" --plugin=protoc-gen-grpc=./node_modules/grpc-tools/bin/grpc_node_plugin && ./scripts/js-proto-fix.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blockcollider/overline-proto.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blockcollider/overline-proto/issues"
+  },
+  "homepage": "https://github.com/blockcollider/overline-proto#readme",
+  "devDependencies": {
+    "grpc-tools": "^1.11.2",
+    "ts-protoc-gen": "^0.15.0"
+  }
+}
