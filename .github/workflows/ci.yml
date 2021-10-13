@@ -1,0 +1,45 @@
+name: CI
+on: push
+
+jobs:
+  javascript-tests:
+    runs-on: ubuntu-latest
+    name: javascript compile tests
+    steps:
+      - uses: actions/checkout@v1 # was master
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+          cache: 'npm'
+      - run: npm install
+      - name: Run tests
+        run: npm run proto
+      - name: Collect changes files
+        id: changed-files
+        run: |
+          echo "::set-output name=changed_file::$(git ls-files -m impl/javascript/)"
+          echo "::set-output name=changed_files_count::$(git ls-files -m impl/javascript/ | wc -l)"
+      - name: check outputs
+        run: |
+          echo "${{ steps.changed-files.outputs.changed_files_count }}"
+          echo "${{ steps.changed-files.outputs.changed_files }}"
+      - name: Fail jobs if files changed
+        if: steps.changed-files.outputs.changed_files_count != 0
+        run: ./scripts/ci-exit-1.sh
+      - name: Notify TG if build failed
+        if: failure()
+        uses: appleboy/telegram-action@0.0.7
+        with:
+          to: ${{ secrets.BC_CORE_CHAT_ID }}
+          token: ${{ secrets.BC_DEV_BOT_TOKEN }}
+          message: '❌ ${{ github.repository }} forgotten changed javascript structs in commit "${{ github.event.head_commit.message }}" (build log: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) - ${{ github.actor}} please fix your commit'
+
+  notify-commit-tg:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Telegram Message Notify about commit
+        uses: appleboy/telegram-action@0.0.7
+        with:
+          to: ${{ secrets.BC_CORE_CHAT_ID }}
+          token: ${{ secrets.BC_DEV_BOT_TOKEN }}
+          message: '${{ github.actor }} updated the repository ${{ github.repository}}, ref:${{ github.ref }} "${{ github.event.head_commit.message }}"'
