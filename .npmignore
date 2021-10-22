@@ -1,3 +1,6 @@
 protos
 impl/*
-!impl/javascript/*
+scripts
+.mailmap
+.github
+*.tgz
