@@ -8,7 +8,7 @@ const {
   BlockchainHeader,
   TransactionInput,
   TransactionOutput
-} = require('./proto/core_pb')
+} = require('../proto/core_pb')
 
 const {
   WirelessBcBlock,
@@ -19,7 +19,7 @@ const {
   WirelessTransactionOutput,
   WirelessBlockchainHeaders,
   WirelessBlockchainHeader
-} = require('./proto/wireless_pb')
+} = require('../proto/wireless_pb')
 const BN = require('bn.js')
 
 // takes protobuf serialized BcBlock in Buffer as input
