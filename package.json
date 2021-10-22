@@ -27,6 +27,7 @@
     "ts-protoc-gen": "^0.15.0"
   },
   "dependencies": {
+    "bn.js": "^5.2.0",
     "google-protobuf": "^3.19.0"
   }
 }
