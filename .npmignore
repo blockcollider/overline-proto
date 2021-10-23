@@ -3,4 +3,5 @@ impl/*
 scripts
 .mailmap
 .github
+.prettier*
 *.tgz
