@@ -2,9 +2,9 @@ name: CI
 on: push
 
 jobs:
-  javascript-tests:
+  javascript-compile:
     runs-on: ubuntu-latest
-    name: javascript compile tests
+    name: javascript compile protos
     steps:
       - uses: actions/checkout@v1 # was master
       - uses: actions/setup-node@v2
@@ -33,6 +33,26 @@ jobs:
           to: ${{ secrets.BC_CORE_CHAT_ID }}
           token: ${{ secrets.BC_DEV_BOT_TOKEN }}
           message: '❌ ${{ github.repository }} forgotten changed javascript structs in commit "${{ github.event.head_commit.message }}" (build log: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) - ${{ github.actor}} please fix your commit'
+
+  javascript-test:
+    runs-on: ubuntu-latest
+    name: javascript impl tests
+    steps:
+      - uses: actions/checkout@v1 # was master
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+          cache: 'npm'
+      - run: npm install
+      - name: Run tests
+        run: npm test
+      - name: notify tg if build failed
+        if: failure()
+        uses: appleboy/telegram-action@0.0.7
+        with:
+          to: ${{ secrets.BC_CORE_CHAT_ID }}
+          token: ${{ secrets.BC_DEV_BOT_TOKEN }}
+          message: '❌ ${{ github.repository }} javascript implementation tests failed in commit "${{ github.event.head_commit.message }}" (build log: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) - ${{ github.actor}} please fix your commit'
 
   notify-commit-tg:
     runs-on: ubuntu-latest
