@@ -15,7 +15,10 @@ steps:
 
 ## Javascript
 
-Javascript / Typescript generated classes are in `impl/javascript/` directory
+Javascript / Typescript generated classes are in `impl/javascript/proto/`
+directory in the repository, if you want to inspect them. But when using a this
+package as a dependency, you can import them as e.g `const { Block } =
+require('@overline-proto/proto/core_pb')`
 
 ### Usage
 
@@ -23,8 +26,14 @@ Javascript / Typescript generated classes are in `impl/javascript/` directory
 - import classes and use them:
 
 ```javascript
-const { BcBlock } = require('@overline/proto/impl/javascript/core_pb')
-const b = new BcBlock()
-b.setHash('a8212d5a65f579c2018b19172be34e4422a93c8437f8e7c19ddc8cad15353862')
-console.log(b.toObject())
+const { BcBlock, BlockchainHeaders } = require('@overline/proto/proto/core_pb')
+const { WirelessBcBlock } = require('@overline/proto/proto/wireless_pb')
+const { codec } = require('@overline/proto/util/wireless-bridge')
+
+console.log(new BcBlock().toObject())
+
+const block = new BcBlock()
+block.setBlockchainHeaders(new BlockchainHeaders())
+const rawWirelessBcBlock = codec.encodeBcBlockForWireless(block.serializeBinary())
+console.log(WirelessBcBlock.deserializeBinary(rawWirelessBcBlock).toObject())
 ```
