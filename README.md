@@ -2,6 +2,8 @@
 
 Protocol buffer definitions are in `protos/` directory
 
+This is not usable with `yarn 1.x` as a "raw dependency" (e.g. from github) due to yarn 1.x not running lifecycle scripts properly (see [yarn#5047](https://github.com/yarnpkg/yarn/issues/5047) issue)
+
 ## Updates, changes
 
 If you want to make a change to a protocol buffer definition, you're then supposed to update all generated implementations and release a new version
@@ -11,6 +13,7 @@ steps:
 - javascript
     - `npm run proto`
     - add all changes files in `impl/javascript/`
+- rust - noop, see Rust section here
 
 ## Releasing new version
 
