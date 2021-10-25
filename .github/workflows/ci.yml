@@ -34,29 +34,14 @@ jobs:
           token: ${{ secrets.BC_DEV_BOT_TOKEN }}
           message: '❌ ${{ github.repository }} forgotten changed javascript structs in commit "${{ github.event.head_commit.message }}" (build log: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) - ${{ github.actor}} please fix your commit'
 
-  javascript-test:
-    runs-on: ubuntu-latest
-    name: javascript impl tests
-    steps:
-      - uses: actions/checkout@v1 # was master
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '12.x'
-          cache: 'npm'
-      - run: npm install
-      - name: Run tests
-        run: npm test
-      - name: notify tg if build failed
-        if: failure()
-        uses: appleboy/telegram-action@0.0.7
-        with:
-          to: ${{ secrets.BC_CORE_CHAT_ID }}
-          token: ${{ secrets.BC_DEV_BOT_TOKEN }}
-          message: '❌ ${{ github.repository }} javascript implementation tests failed in commit "${{ github.event.head_commit.message }}" (build log: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) - ${{ github.actor}} please fix your commit'
+  javascript-build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
 
-  javascript-lint:
-    runs-on: ubuntu-latest
-    name: javascript impl prettier lint
+    runs-on: ${{ matrix.os }}
+    name: javascript build on ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v1 # was master
       - uses: actions/setup-node@v2
@@ -64,15 +49,15 @@ jobs:
           node-version: '12.x'
           cache: 'npm'
       - run: npm install
-      - name: Run prettier lint check
-        run: npm run lint
+      - name: Run build script (lint && test)
+        run: npm run build
       - name: notify tg if build failed
         if: failure()
         uses: appleboy/telegram-action@0.0.7
         with:
           to: ${{ secrets.BC_CORE_CHAT_ID }}
           token: ${{ secrets.BC_DEV_BOT_TOKEN }}
-          message: '❌ ${{ github.repository }} javascript implementation volates prettier code standard in commit "${{ github.event.head_commit.message }}" (build log: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) - ${{ github.actor}} please fix your commit'
+          message: '❌ ${{ github.repository }} javascript implementation tests or lint check failed in commit "${{ github.event.head_commit.message }}" (build log: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) - ${{ github.actor}} please fix your commit'
 
   notify-commit-tg:
     runs-on: ubuntu-latest
