@@ -336,6 +336,7 @@ service Bc {
     rpc Stats (core.Null) returns (StatsResponse) {}
     rpc GetSettings (core.Null) returns (SettingsResponse) {}
     rpc NewFeed (RpcFeedTransaction) returns (RpcTransactionResponse) {}
+    rpc UpdateFeed (RpcUpdateFeedTransaction) returns (RpcTransactionResponse) {}
     rpc NewTx (RpcTransaction) returns (RpcTransactionResponse) {}
     rpc SendTx (core.Transaction) returns (RpcTransactionResponse) {}
 

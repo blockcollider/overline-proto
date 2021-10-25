@@ -227,6 +227,15 @@ Bc.NewFeed = {
   responseType: bc_pb.RpcTransactionResponse
 };
 
+Bc.UpdateFeed = {
+  methodName: "UpdateFeed",
+  service: Bc,
+  requestStream: false,
+  responseStream: false,
+  requestType: bc_pb.RpcUpdateFeedTransaction,
+  responseType: bc_pb.RpcTransactionResponse
+};
+
 Bc.NewTx = {
   methodName: "NewTx",
   service: Bc,
@@ -1150,6 +1159,37 @@ BcClient.prototype.newFeed = function newFeed(requestMessage, metadata, callback
     callback = arguments[1];
   }
   var client = grpc.unary(Bc.NewFeed, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+BcClient.prototype.updateFeed = function updateFeed(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(Bc.UpdateFeed, {
     request: requestMessage,
     host: this.serviceHost,
     metadata: metadata,

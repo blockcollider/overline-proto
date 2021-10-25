@@ -221,6 +221,15 @@ type BcNewFeed = {
   readonly responseType: typeof bc_pb.RpcTransactionResponse;
 };
 
+type BcUpdateFeed = {
+  readonly methodName: string;
+  readonly service: typeof Bc;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof bc_pb.RpcUpdateFeedTransaction;
+  readonly responseType: typeof bc_pb.RpcTransactionResponse;
+};
+
 type BcNewTx = {
   readonly methodName: string;
   readonly service: typeof Bc;
@@ -445,6 +454,7 @@ export class Bc {
   static readonly Stats: BcStats;
   static readonly GetSettings: BcGetSettings;
   static readonly NewFeed: BcNewFeed;
+  static readonly UpdateFeed: BcUpdateFeed;
   static readonly NewTx: BcNewTx;
   static readonly SendTx: BcSendTx;
   static readonly GetEmbBalance: BcGetEmbBalance;
@@ -715,6 +725,15 @@ export class BcClient {
   ): UnaryResponse;
   newFeed(
     requestMessage: bc_pb.RpcFeedTransaction,
+    callback: (error: ServiceError|null, responseMessage: bc_pb.RpcTransactionResponse|null) => void
+  ): UnaryResponse;
+  updateFeed(
+    requestMessage: bc_pb.RpcUpdateFeedTransaction,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: bc_pb.RpcTransactionResponse|null) => void
+  ): UnaryResponse;
+  updateFeed(
+    requestMessage: bc_pb.RpcUpdateFeedTransaction,
     callback: (error: ServiceError|null, responseMessage: bc_pb.RpcTransactionResponse|null) => void
   ): UnaryResponse;
   newTx(

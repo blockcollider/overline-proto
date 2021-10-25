@@ -500,6 +500,17 @@ function deserialize_bc_exchange_RpcTransactionResponse(buffer_arg) {
   return bc_pb.RpcTransactionResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_bc_exchange_RpcUpdateFeedTransaction(arg) {
+  if (!(arg instanceof bc_pb.RpcUpdateFeedTransaction)) {
+    throw new Error('Expected argument of type bc.exchange.RpcUpdateFeedTransaction');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_bc_exchange_RpcUpdateFeedTransaction(buffer_arg) {
+  return bc_pb.RpcUpdateFeedTransaction.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_bc_exchange_SettingsResponse(arg) {
   if (!(arg instanceof bc_pb.SettingsResponse)) {
     throw new Error('Expected argument of type bc.exchange.SettingsResponse');
@@ -840,6 +851,17 @@ var BcService = exports.BcService = {
     responseType: bc_pb.RpcTransactionResponse,
     requestSerialize: serialize_bc_exchange_RpcFeedTransaction,
     requestDeserialize: deserialize_bc_exchange_RpcFeedTransaction,
+    responseSerialize: serialize_bc_exchange_RpcTransactionResponse,
+    responseDeserialize: deserialize_bc_exchange_RpcTransactionResponse,
+  },
+  updateFeed: {
+    path: '/bc.exchange.Bc/UpdateFeed',
+    requestStream: false,
+    responseStream: false,
+    requestType: bc_pb.RpcUpdateFeedTransaction,
+    responseType: bc_pb.RpcTransactionResponse,
+    requestSerialize: serialize_bc_exchange_RpcUpdateFeedTransaction,
+    requestDeserialize: deserialize_bc_exchange_RpcUpdateFeedTransaction,
     responseSerialize: serialize_bc_exchange_RpcTransactionResponse,
     responseDeserialize: deserialize_bc_exchange_RpcTransactionResponse,
   },
