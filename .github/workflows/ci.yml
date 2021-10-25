@@ -57,7 +57,7 @@ jobs:
         with:
           to: ${{ secrets.BC_CORE_CHAT_ID }}
           token: ${{ secrets.BC_DEV_BOT_TOKEN }}
-          message: '❌ ${{ github.repository }} javascript implementation tests or lint check failed in commit "${{ github.event.head_commit.message }}" (build log: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) - ${{ github.actor}} please fix your commit'
+          message: '❌ ${{ github.repository }} javascript implementation tests or lint check failed on ${{ matrix.os }} in commit "${{ github.event.head_commit.message }}" (build log: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) - ${{ github.actor}} please fix your commit'
 
   notify-commit-tg:
     runs-on: ubuntu-latest
