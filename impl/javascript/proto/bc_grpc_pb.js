@@ -1,7 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
-var grpc = require('grpc');
+var grpc = require('@grpc/grpc-js');
 var bc_pb = require('./bc_pb.js');
 var core_pb = require('./core_pb.js');
 

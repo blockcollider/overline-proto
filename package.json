@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "tape ./impl/javascript/tests/*",
-    "proto": "./node_modules/.bin/grpc_tools_node_protoc --plugin=./node_modules/.bin/protoc-gen-ts --proto_path=protos --js_out=import_style=commonjs,binary:impl/javascript/proto protos/*.proto --grpc_out=impl/javascript/proto --ts_out=\"service=grpc-web:impl/javascript/proto\" --plugin=protoc-gen-grpc=./node_modules/grpc-tools/bin/grpc_node_plugin && ./scripts/js-proto-fix.sh",
+    "proto": "./node_modules/.bin/grpc_tools_node_protoc --plugin=./node_modules/.bin/protoc-gen-ts --proto_path=protos --js_out=import_style=commonjs,binary:impl/javascript/proto protos/*.proto --grpc_out=grpc_js:impl/javascript/proto --ts_out=\"service=grpc-web:impl/javascript/proto\" --plugin=protoc-gen-grpc=./node_modules/grpc-tools/bin/grpc_node_plugin && ./scripts/js-proto-fix.sh",
     "prepare": "npm run build && npm run copy:js",
     "prepack": "npm run build && npm run copy:js",
     "build": "npm run lint && npm test",
@@ -35,6 +35,7 @@
     "ts-protoc-gen": "^0.15.0"
   },
   "dependencies": {
+    "@grpc/grpc-js": "^1.4.1",
     "bn.js": "^5.2.0",
     "google-protobuf": "^3.19.0"
   }
