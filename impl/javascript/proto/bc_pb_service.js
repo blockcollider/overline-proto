@@ -326,6 +326,33 @@ Bc.GetTransfers = {
   responseType: bc_pb.TransferResponse
 };
 
+Bc.GetOpenOrder = {
+  methodName: "GetOpenOrder",
+  service: Bc,
+  requestStream: false,
+  responseStream: false,
+  requestType: bc_pb.GetOutPointRequest,
+  responseType: bc_pb.GetOpenOrdersResponse
+};
+
+Bc.GetOpenCallbackOrder = {
+  methodName: "GetOpenCallbackOrder",
+  service: Bc,
+  requestStream: false,
+  responseStream: false,
+  requestType: bc_pb.GetOutPointRequest,
+  responseType: bc_pb.GetOpenOrdersResponse
+};
+
+Bc.GetMatchedOrder = {
+  methodName: "GetMatchedOrder",
+  service: Bc,
+  requestStream: false,
+  responseStream: false,
+  requestType: bc_pb.GetOutPointRequest,
+  responseType: bc_pb.GetMatchedOrdersResponse
+};
+
 Bc.GetOpenOrders = {
   methodName: "GetOpenOrders",
   service: Bc,
@@ -1500,6 +1527,99 @@ BcClient.prototype.getTransfers = function getTransfers(requestMessage, metadata
     callback = arguments[1];
   }
   var client = grpc.unary(Bc.GetTransfers, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+BcClient.prototype.getOpenOrder = function getOpenOrder(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(Bc.GetOpenOrder, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+BcClient.prototype.getOpenCallbackOrder = function getOpenCallbackOrder(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(Bc.GetOpenCallbackOrder, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+BcClient.prototype.getMatchedOrder = function getMatchedOrder(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(Bc.GetMatchedOrder, {
     request: requestMessage,
     host: this.serviceHost,
     metadata: metadata,

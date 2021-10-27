@@ -320,6 +320,33 @@ type BcGetTransfers = {
   readonly responseType: typeof bc_pb.TransferResponse;
 };
 
+type BcGetOpenOrder = {
+  readonly methodName: string;
+  readonly service: typeof Bc;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof bc_pb.GetOutPointRequest;
+  readonly responseType: typeof bc_pb.GetOpenOrdersResponse;
+};
+
+type BcGetOpenCallbackOrder = {
+  readonly methodName: string;
+  readonly service: typeof Bc;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof bc_pb.GetOutPointRequest;
+  readonly responseType: typeof bc_pb.GetOpenOrdersResponse;
+};
+
+type BcGetMatchedOrder = {
+  readonly methodName: string;
+  readonly service: typeof Bc;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof bc_pb.GetOutPointRequest;
+  readonly responseType: typeof bc_pb.GetMatchedOrdersResponse;
+};
+
 type BcGetOpenOrders = {
   readonly methodName: string;
   readonly service: typeof Bc;
@@ -465,6 +492,9 @@ export class Bc {
   static readonly GetUnlockTakerTxParams: BcGetUnlockTakerTxParams;
   static readonly GetByteFeeMultiplier: BcGetByteFeeMultiplier;
   static readonly GetTransfers: BcGetTransfers;
+  static readonly GetOpenOrder: BcGetOpenOrder;
+  static readonly GetOpenCallbackOrder: BcGetOpenCallbackOrder;
+  static readonly GetMatchedOrder: BcGetMatchedOrder;
   static readonly GetOpenOrders: BcGetOpenOrders;
   static readonly GetMatchedOrders: BcGetMatchedOrders;
   static readonly GetHistoricalOrders: BcGetHistoricalOrders;
@@ -825,6 +855,33 @@ export class BcClient {
   getTransfers(
     requestMessage: bc_pb.TransferRequest,
     callback: (error: ServiceError|null, responseMessage: bc_pb.TransferResponse|null) => void
+  ): UnaryResponse;
+  getOpenOrder(
+    requestMessage: bc_pb.GetOutPointRequest,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: bc_pb.GetOpenOrdersResponse|null) => void
+  ): UnaryResponse;
+  getOpenOrder(
+    requestMessage: bc_pb.GetOutPointRequest,
+    callback: (error: ServiceError|null, responseMessage: bc_pb.GetOpenOrdersResponse|null) => void
+  ): UnaryResponse;
+  getOpenCallbackOrder(
+    requestMessage: bc_pb.GetOutPointRequest,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: bc_pb.GetOpenOrdersResponse|null) => void
+  ): UnaryResponse;
+  getOpenCallbackOrder(
+    requestMessage: bc_pb.GetOutPointRequest,
+    callback: (error: ServiceError|null, responseMessage: bc_pb.GetOpenOrdersResponse|null) => void
+  ): UnaryResponse;
+  getMatchedOrder(
+    requestMessage: bc_pb.GetOutPointRequest,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: bc_pb.GetMatchedOrdersResponse|null) => void
+  ): UnaryResponse;
+  getMatchedOrder(
+    requestMessage: bc_pb.GetOutPointRequest,
+    callback: (error: ServiceError|null, responseMessage: bc_pb.GetMatchedOrdersResponse|null) => void
   ): UnaryResponse;
   getOpenOrders(
     requestMessage: bc_pb.GetSpendableCollateralRequest,
