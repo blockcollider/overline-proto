@@ -311,6 +311,15 @@ type BcGetByteFeeMultiplier = {
   readonly responseType: typeof bc_pb.GetByteFeeResponse;
 };
 
+type BcGetTakerForMaker = {
+  readonly methodName: string;
+  readonly service: typeof Bc;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof bc_pb.GetOutPointRequest;
+  readonly responseType: typeof bc_pb.GetOutPointRequest;
+};
+
 type BcGetTransfers = {
   readonly methodName: string;
   readonly service: typeof Bc;
@@ -491,6 +500,7 @@ export class Bc {
   static readonly GetSpendableCollateral: BcGetSpendableCollateral;
   static readonly GetUnlockTakerTxParams: BcGetUnlockTakerTxParams;
   static readonly GetByteFeeMultiplier: BcGetByteFeeMultiplier;
+  static readonly GetTakerForMaker: BcGetTakerForMaker;
   static readonly GetTransfers: BcGetTransfers;
   static readonly GetOpenOrder: BcGetOpenOrder;
   static readonly GetOpenCallbackOrder: BcGetOpenCallbackOrder;
@@ -846,6 +856,15 @@ export class BcClient {
   getByteFeeMultiplier(
     requestMessage: core_pb.Null,
     callback: (error: ServiceError|null, responseMessage: bc_pb.GetByteFeeResponse|null) => void
+  ): UnaryResponse;
+  getTakerForMaker(
+    requestMessage: bc_pb.GetOutPointRequest,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: bc_pb.GetOutPointRequest|null) => void
+  ): UnaryResponse;
+  getTakerForMaker(
+    requestMessage: bc_pb.GetOutPointRequest,
+    callback: (error: ServiceError|null, responseMessage: bc_pb.GetOutPointRequest|null) => void
   ): UnaryResponse;
   getTransfers(
     requestMessage: bc_pb.TransferRequest,

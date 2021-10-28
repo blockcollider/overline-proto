@@ -349,6 +349,7 @@ service Bc {
 
     rpc GetByteFeeMultiplier (core.Null) returns (GetByteFeeResponse) {}
 
+    rpc GetTakerForMaker (GetOutPointRequest) returns (GetOutPointRequest) {}
     rpc GetTransfers (TransferRequest) returns (TransferResponse) {}
     rpc GetOpenOrder (GetOutPointRequest) returns (GetOpenOrdersResponse) {}
     rpc GetOpenCallbackOrder (GetOutPointRequest) returns (GetOpenOrdersResponse) {}
