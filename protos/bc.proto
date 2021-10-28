@@ -350,6 +350,8 @@ service Bc {
     rpc GetByteFeeMultiplier (core.Null) returns (GetByteFeeResponse) {}
 
     rpc GetTransfers (TransferRequest) returns (TransferResponse) {}
+
+    rpc GetTakerForMaker (GetOutPointRequest) returns (GetOutPointRequest) {}
     rpc GetOpenOrder (GetOutPointRequest) returns (GetOpenOrdersResponse) {}
     rpc GetOpenCallbackOrder (GetOutPointRequest) returns (GetOpenOrdersResponse) {}
     rpc GetMatchedOrder (GetOutPointRequest) returns (GetMatchedOrdersResponse) {}
