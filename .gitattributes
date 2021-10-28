@@ -3,3 +3,4 @@
 
 # Declare files that will always have LF line endings on checkout.
 *.js text eol=lf
+impl/javascript/proto/*.js text eol=lf whitespace=blank-at-eof
