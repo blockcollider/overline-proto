@@ -986,6 +986,17 @@ var BcService = exports.BcService = {
     responseSerialize: serialize_bc_exchange_TransferResponse,
     responseDeserialize: deserialize_bc_exchange_TransferResponse,
   },
+  getTakerForMaker: {
+    path: '/bc.exchange.Bc/GetTakerForMaker',
+    requestStream: false,
+    responseStream: false,
+    requestType: bc_pb.GetOutPointRequest,
+    responseType: bc_pb.GetOutPointRequest,
+    requestSerialize: serialize_bc_exchange_GetOutPointRequest,
+    requestDeserialize: deserialize_bc_exchange_GetOutPointRequest,
+    responseSerialize: serialize_bc_exchange_GetOutPointRequest,
+    responseDeserialize: deserialize_bc_exchange_GetOutPointRequest,
+  },
   getOpenOrder: {
     path: '/bc.exchange.Bc/GetOpenOrder',
     requestStream: false,

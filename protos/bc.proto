@@ -351,6 +351,8 @@ service Bc {
 
     rpc GetTakerForMaker (GetOutPointRequest) returns (GetOutPointRequest) {}
     rpc GetTransfers (TransferRequest) returns (TransferResponse) {}
+
+    rpc GetTakerForMaker (GetOutPointRequest) returns (GetOutPointRequest) {}
     rpc GetOpenOrder (GetOutPointRequest) returns (GetOpenOrdersResponse) {}
     rpc GetOpenCallbackOrder (GetOutPointRequest) returns (GetOpenOrdersResponse) {}
     rpc GetMatchedOrder (GetOutPointRequest) returns (GetMatchedOrdersResponse) {}
