@@ -24,24 +24,32 @@ message RpcTransaction {
 message RpcFeedTransaction {
     string owner_addr = 1;
     string feed_addr = 2;
-    string amount = 3;
-    string tx_fee = 4;
-    string private_key_hex = 5;
+    string data_type = 3;
+    string data_length = 4;
+    string data = 5;
+    string amount = 6;
+    string tx_fee = 7;
+    string tx_part = 8;
+    string tx_panel = 9;
+    string tx_nonce = 10;
+    string minimum_distance = 11;
+    string private_key_hex = 12;
 }
 
 message RpcUpdateFeedTransaction {
     string owner_addr = 1;
     string feed_addr = 2;
     string sender_addr = 3;
-    string data = 4;
+    string data_type = 4;
     string data_length = 5;
-    string amount = 6;
-    string tx_fee = 7;
-    string tx_panel = 8;
-    string tx_part = 9;
-    string tx_nonce = 10;
-    string minimum_distance = 11;
-    string private_key_hex = 12;
+    string data = 6;
+    string amount = 7;
+    string tx_fee = 8;
+    string tx_panel = 9;
+    string tx_part = 10;
+    string tx_nonce = 11;
+    string minimum_distance = 12;
+    string private_key_hex = 13;
 }
 
 enum RpcTransactionResponseStatus {
