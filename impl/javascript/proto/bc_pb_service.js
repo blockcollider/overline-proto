@@ -223,7 +223,7 @@ Bc.NewFeed = {
   service: Bc,
   requestStream: false,
   responseStream: false,
-  requestType: bc_pb.RpcFeedTransaction,
+  requestType: bc_pb.RpcFeedTransactionRequest,
   responseType: bc_pb.RpcTransactionResponse
 };
 
@@ -232,7 +232,7 @@ Bc.UpdateFeed = {
   service: Bc,
   requestStream: false,
   responseStream: false,
-  requestType: bc_pb.RpcUpdateFeedTransaction,
+  requestType: bc_pb.RpcUpdateFeedTransactionRequest,
   responseType: bc_pb.RpcTransactionResponse
 };
 
