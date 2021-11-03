@@ -84,12 +84,21 @@ export namespace RpcTransaction {
   }
 }
 
-export class RpcFeedTransaction extends jspb.Message {
+export class RpcFeedTransactionRequest extends jspb.Message {
   getOwnerAddr(): string;
   setOwnerAddr(value: string): void;
 
   getFeedAddr(): string;
   setFeedAddr(value: string): void;
+
+  getDataType(): FeedTransactionDataTypeMap[keyof FeedTransactionDataTypeMap];
+  setDataType(value: FeedTransactionDataTypeMap[keyof FeedTransactionDataTypeMap]): void;
+
+  getDataLength(): number;
+  setDataLength(value: number): void;
+
+  getData(): string;
+  setData(value: string): void;
 
   getAmount(): string;
   setAmount(value: string): void;
@@ -97,30 +106,49 @@ export class RpcFeedTransaction extends jspb.Message {
   getTxFee(): string;
   setTxFee(value: string): void;
 
+  getTxPart(): string;
+  setTxPart(value: string): void;
+
+  getTxPanel(): string;
+  setTxPanel(value: string): void;
+
+  getTxNonce(): string;
+  setTxNonce(value: string): void;
+
+  getMinimumDistance(): string;
+  setMinimumDistance(value: string): void;
+
   getPrivateKeyHex(): string;
   setPrivateKeyHex(value: string): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): RpcFeedTransaction.AsObject;
-  static toObject(includeInstance: boolean, msg: RpcFeedTransaction): RpcFeedTransaction.AsObject;
+  toObject(includeInstance?: boolean): RpcFeedTransactionRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: RpcFeedTransactionRequest): RpcFeedTransactionRequest.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: RpcFeedTransaction, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): RpcFeedTransaction;
-  static deserializeBinaryFromReader(message: RpcFeedTransaction, reader: jspb.BinaryReader): RpcFeedTransaction;
+  static serializeBinaryToWriter(message: RpcFeedTransactionRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RpcFeedTransactionRequest;
+  static deserializeBinaryFromReader(message: RpcFeedTransactionRequest, reader: jspb.BinaryReader): RpcFeedTransactionRequest;
 }
 
-export namespace RpcFeedTransaction {
+export namespace RpcFeedTransactionRequest {
   export type AsObject = {
     ownerAddr: string,
     feedAddr: string,
+    dataType: FeedTransactionDataTypeMap[keyof FeedTransactionDataTypeMap],
+    dataLength: number,
+    data: string,
     amount: string,
     txFee: string,
+    txPart: string,
+    txPanel: string,
+    txNonce: string,
+    minimumDistance: string,
     privateKeyHex: string,
   }
 }
 
-export class RpcUpdateFeedTransaction extends jspb.Message {
+export class RpcUpdateFeedTransactionRequest extends jspb.Message {
   getOwnerAddr(): string;
   setOwnerAddr(value: string): void;
 
@@ -130,11 +158,14 @@ export class RpcUpdateFeedTransaction extends jspb.Message {
   getSenderAddr(): string;
   setSenderAddr(value: string): void;
 
+  getDataType(): FeedTransactionDataTypeMap[keyof FeedTransactionDataTypeMap];
+  setDataType(value: FeedTransactionDataTypeMap[keyof FeedTransactionDataTypeMap]): void;
+
+  getDataLength(): number;
+  setDataLength(value: number): void;
+
   getData(): string;
   setData(value: string): void;
-
-  getDataLength(): string;
-  setDataLength(value: string): void;
 
   getAmount(): string;
   setAmount(value: string): void;
@@ -158,22 +189,23 @@ export class RpcUpdateFeedTransaction extends jspb.Message {
   setPrivateKeyHex(value: string): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): RpcUpdateFeedTransaction.AsObject;
-  static toObject(includeInstance: boolean, msg: RpcUpdateFeedTransaction): RpcUpdateFeedTransaction.AsObject;
+  toObject(includeInstance?: boolean): RpcUpdateFeedTransactionRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: RpcUpdateFeedTransactionRequest): RpcUpdateFeedTransactionRequest.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: RpcUpdateFeedTransaction, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): RpcUpdateFeedTransaction;
-  static deserializeBinaryFromReader(message: RpcUpdateFeedTransaction, reader: jspb.BinaryReader): RpcUpdateFeedTransaction;
+  static serializeBinaryToWriter(message: RpcUpdateFeedTransactionRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RpcUpdateFeedTransactionRequest;
+  static deserializeBinaryFromReader(message: RpcUpdateFeedTransactionRequest, reader: jspb.BinaryReader): RpcUpdateFeedTransactionRequest;
 }
 
-export namespace RpcUpdateFeedTransaction {
+export namespace RpcUpdateFeedTransactionRequest {
   export type AsObject = {
     ownerAddr: string,
     feedAddr: string,
     senderAddr: string,
+    dataType: FeedTransactionDataTypeMap[keyof FeedTransactionDataTypeMap],
+    dataLength: number,
     data: string,
-    dataLength: string,
     amount: string,
     txFee: string,
     txPanel: string,
@@ -1405,6 +1437,12 @@ export namespace GetMarkedTxs {
     txsList: Array<core_pb.MarkedTransaction.AsObject>,
   }
 }
+
+export interface FeedTransactionDataTypeMap {
+  TYPE1: 0;
+}
+
+export const FeedTransactionDataType: FeedTransactionDataTypeMap;
 
 export interface RpcTransactionResponseStatusMap {
   SUCCESS: 0;

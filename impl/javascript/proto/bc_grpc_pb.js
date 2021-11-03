@@ -467,15 +467,15 @@ function deserialize_bc_exchange_HelpResponse(buffer_arg) {
   return bc_pb.HelpResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_bc_exchange_RpcFeedTransaction(arg) {
-  if (!(arg instanceof bc_pb.RpcFeedTransaction)) {
-    throw new Error('Expected argument of type bc.exchange.RpcFeedTransaction');
+function serialize_bc_exchange_RpcFeedTransactionRequest(arg) {
+  if (!(arg instanceof bc_pb.RpcFeedTransactionRequest)) {
+    throw new Error('Expected argument of type bc.exchange.RpcFeedTransactionRequest');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_bc_exchange_RpcFeedTransaction(buffer_arg) {
-  return bc_pb.RpcFeedTransaction.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_bc_exchange_RpcFeedTransactionRequest(buffer_arg) {
+  return bc_pb.RpcFeedTransactionRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_bc_exchange_RpcTransaction(arg) {
@@ -500,15 +500,15 @@ function deserialize_bc_exchange_RpcTransactionResponse(buffer_arg) {
   return bc_pb.RpcTransactionResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_bc_exchange_RpcUpdateFeedTransaction(arg) {
-  if (!(arg instanceof bc_pb.RpcUpdateFeedTransaction)) {
-    throw new Error('Expected argument of type bc.exchange.RpcUpdateFeedTransaction');
+function serialize_bc_exchange_RpcUpdateFeedTransactionRequest(arg) {
+  if (!(arg instanceof bc_pb.RpcUpdateFeedTransactionRequest)) {
+    throw new Error('Expected argument of type bc.exchange.RpcUpdateFeedTransactionRequest');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_bc_exchange_RpcUpdateFeedTransaction(buffer_arg) {
-  return bc_pb.RpcUpdateFeedTransaction.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_bc_exchange_RpcUpdateFeedTransactionRequest(buffer_arg) {
+  return bc_pb.RpcUpdateFeedTransactionRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_bc_exchange_SettingsResponse(arg) {
@@ -847,10 +847,10 @@ var BcService = exports.BcService = {
     path: '/bc.exchange.Bc/NewFeed',
     requestStream: false,
     responseStream: false,
-    requestType: bc_pb.RpcFeedTransaction,
+    requestType: bc_pb.RpcFeedTransactionRequest,
     responseType: bc_pb.RpcTransactionResponse,
-    requestSerialize: serialize_bc_exchange_RpcFeedTransaction,
-    requestDeserialize: deserialize_bc_exchange_RpcFeedTransaction,
+    requestSerialize: serialize_bc_exchange_RpcFeedTransactionRequest,
+    requestDeserialize: deserialize_bc_exchange_RpcFeedTransactionRequest,
     responseSerialize: serialize_bc_exchange_RpcTransactionResponse,
     responseDeserialize: deserialize_bc_exchange_RpcTransactionResponse,
   },
@@ -858,10 +858,10 @@ var BcService = exports.BcService = {
     path: '/bc.exchange.Bc/UpdateFeed',
     requestStream: false,
     responseStream: false,
-    requestType: bc_pb.RpcUpdateFeedTransaction,
+    requestType: bc_pb.RpcUpdateFeedTransactionRequest,
     responseType: bc_pb.RpcTransactionResponse,
-    requestSerialize: serialize_bc_exchange_RpcUpdateFeedTransaction,
-    requestDeserialize: deserialize_bc_exchange_RpcUpdateFeedTransaction,
+    requestSerialize: serialize_bc_exchange_RpcUpdateFeedTransactionRequest,
+    requestDeserialize: deserialize_bc_exchange_RpcUpdateFeedTransactionRequest,
     responseSerialize: serialize_bc_exchange_RpcTransactionResponse,
     responseDeserialize: deserialize_bc_exchange_RpcTransactionResponse,
   },
