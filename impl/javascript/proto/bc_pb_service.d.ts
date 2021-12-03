@@ -419,6 +419,15 @@ type BcGetSTXOLength = {
   readonly responseType: typeof bc_pb.GetUtxoLengthResponse;
 };
 
+type BcGetBlocksByRoveredHash = {
+  readonly methodName: string;
+  readonly service: typeof Bc;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof bc_pb.GetBlocksByRoveredHashRequest;
+  readonly responseType: typeof bc_pb.GetBlocksByRoveredHashResponse;
+};
+
 type BcGetBlake2bl = {
   readonly methodName: string;
   readonly service: typeof Bc;
@@ -512,6 +521,7 @@ export class Bc {
   static readonly GetUtxos: BcGetUtxos;
   static readonly GetUTXOLength: BcGetUTXOLength;
   static readonly GetSTXOLength: BcGetSTXOLength;
+  static readonly GetBlocksByRoveredHash: BcGetBlocksByRoveredHash;
   static readonly GetBlake2bl: BcGetBlake2bl;
   static readonly GetBcAddressViaVanity: BcGetBcAddressViaVanity;
   static readonly GetCurrentWork: BcGetCurrentWork;
@@ -964,6 +974,15 @@ export class BcClient {
   getSTXOLength(
     requestMessage: bc_pb.GetUtxoLengthRequest,
     callback: (error: ServiceError|null, responseMessage: bc_pb.GetUtxoLengthResponse|null) => void
+  ): UnaryResponse;
+  getBlocksByRoveredHash(
+    requestMessage: bc_pb.GetBlocksByRoveredHashRequest,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: bc_pb.GetBlocksByRoveredHashResponse|null) => void
+  ): UnaryResponse;
+  getBlocksByRoveredHash(
+    requestMessage: bc_pb.GetBlocksByRoveredHashRequest,
+    callback: (error: ServiceError|null, responseMessage: bc_pb.GetBlocksByRoveredHashResponse|null) => void
   ): UnaryResponse;
   getBlake2bl(
     requestMessage: bc_pb.GetBlake2blRequest,

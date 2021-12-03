@@ -1292,6 +1292,52 @@ export namespace GetOutPointRequest {
   }
 }
 
+export class GetBlocksByRoveredHashRequest extends jspb.Message {
+  getBlockchain(): string;
+  setBlockchain(value: string): void;
+
+  getHash(): string;
+  setHash(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetBlocksByRoveredHashRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetBlocksByRoveredHashRequest): GetBlocksByRoveredHashRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: GetBlocksByRoveredHashRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetBlocksByRoveredHashRequest;
+  static deserializeBinaryFromReader(message: GetBlocksByRoveredHashRequest, reader: jspb.BinaryReader): GetBlocksByRoveredHashRequest;
+}
+
+export namespace GetBlocksByRoveredHashRequest {
+  export type AsObject = {
+    blockchain: string,
+    hash: string,
+  }
+}
+
+export class GetBlocksByRoveredHashResponse extends jspb.Message {
+  clearBlocksList(): void;
+  getBlocksList(): Array<core_pb.BcBlock>;
+  setBlocksList(value: Array<core_pb.BcBlock>): void;
+  addBlocks(value?: core_pb.BcBlock, index?: number): core_pb.BcBlock;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetBlocksByRoveredHashResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: GetBlocksByRoveredHashResponse): GetBlocksByRoveredHashResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: GetBlocksByRoveredHashResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetBlocksByRoveredHashResponse;
+  static deserializeBinaryFromReader(message: GetBlocksByRoveredHashResponse, reader: jspb.BinaryReader): GetBlocksByRoveredHashResponse;
+}
+
+export namespace GetBlocksByRoveredHashResponse {
+  export type AsObject = {
+    blocksList: Array<core_pb.BcBlock.AsObject>,
+  }
+}
+
 export class GetTradeStatusResponse extends jspb.Message {
   getStatus(): number;
   setStatus(value: number): void;

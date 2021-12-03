@@ -159,6 +159,28 @@ function deserialize_bc_exchange_GetBlockHeightRequest(buffer_arg) {
   return bc_pb.GetBlockHeightRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_bc_exchange_GetBlocksByRoveredHashRequest(arg) {
+  if (!(arg instanceof bc_pb.GetBlocksByRoveredHashRequest)) {
+    throw new Error('Expected argument of type bc.exchange.GetBlocksByRoveredHashRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_bc_exchange_GetBlocksByRoveredHashRequest(buffer_arg) {
+  return bc_pb.GetBlocksByRoveredHashRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_bc_exchange_GetBlocksByRoveredHashResponse(arg) {
+  if (!(arg instanceof bc_pb.GetBlocksByRoveredHashResponse)) {
+    throw new Error('Expected argument of type bc.exchange.GetBlocksByRoveredHashResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_bc_exchange_GetBlocksByRoveredHashResponse(buffer_arg) {
+  return bc_pb.GetBlocksByRoveredHashResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_bc_exchange_GetBlocksRequest(arg) {
   if (!(arg instanceof bc_pb.GetBlocksRequest)) {
     throw new Error('Expected argument of type bc.exchange.GetBlocksRequest');
@@ -1095,6 +1117,17 @@ var BcService = exports.BcService = {
     requestDeserialize: deserialize_bc_exchange_GetUtxoLengthRequest,
     responseSerialize: serialize_bc_exchange_GetUtxoLengthResponse,
     responseDeserialize: deserialize_bc_exchange_GetUtxoLengthResponse,
+  },
+  getBlocksByRoveredHash: {
+    path: '/bc.exchange.Bc/GetBlocksByRoveredHash',
+    requestStream: false,
+    responseStream: false,
+    requestType: bc_pb.GetBlocksByRoveredHashRequest,
+    responseType: bc_pb.GetBlocksByRoveredHashResponse,
+    requestSerialize: serialize_bc_exchange_GetBlocksByRoveredHashRequest,
+    requestDeserialize: deserialize_bc_exchange_GetBlocksByRoveredHashRequest,
+    responseSerialize: serialize_bc_exchange_GetBlocksByRoveredHashResponse,
+    responseDeserialize: deserialize_bc_exchange_GetBlocksByRoveredHashResponse,
   },
   getBlake2bl: {
     path: '/bc.exchange.Bc/GetBlake2bl',

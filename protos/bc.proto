@@ -285,6 +285,15 @@ message GetOutPointRequest {
     uint32 index = 2;
 }
 
+message GetBlocksByRoveredHashRequest {
+    string blockchain = 1;
+    string hash = 2;
+}
+
+message GetBlocksByRoveredHashResponse {
+    repeated core.BcBlock blocks = 1;
+}
+
 message GetTradeStatusResponse {
     uint32 status = 1;
 }
@@ -376,7 +385,7 @@ service Bc {
     rpc GetUtxos (GetUtxosRequest) returns (core.Utxos) {}
     rpc GetUTXOLength (GetUtxoLengthRequest) returns (GetUtxoLengthResponse) {}
     rpc GetSTXOLength (GetUtxoLengthRequest) returns (GetUtxoLengthResponse) {}
-
+    rpc GetBlocksByRoveredHash (GetBlocksByRoveredHashRequest) returns (GetBlocksByRoveredHashResponse) {}
     rpc GetBlake2bl (GetBlake2blRequest) returns (GetBlake2blResponse) {}
     rpc GetBcAddressViaVanity (VanityConvertRequest) returns (VanityConvertResponse) {}
     rpc GetCurrentWork (core.Null) returns (CurrentWork) {}
