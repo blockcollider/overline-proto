@@ -20,7 +20,7 @@ steps:
 - do your work in topic branch, then merge to master
 - when merged in master, you can then run `npx release-it` to take care of all the steps except the final `npm publish`
 - wait until build in CI for the newly pushed tag finished
-- you can then run `npm run publish-package`
+- you can then run `npm publish --access public`
 - BEWARE: when adding new language implementation, release-it has to also bump the version in the other languages package descriptor first and also this list needs step for publishing the respective package
 
 ## Language specific guides
