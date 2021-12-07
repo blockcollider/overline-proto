@@ -1,6 +1,6 @@
 {
   "name": "@overline/proto",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Protobufs for Overline",
   "main": "index.js",
   "scripts": {
