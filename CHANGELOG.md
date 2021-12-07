@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Docs about publishing NPM package
 
+### Added
+
+- Introduced a new rpc call (GetOriginalMakerOrder) that returns the original Maker Transaction with respect to the transaction hash and index provided as arguments.  
+
+
 ## [0.3.1] - 2021-12-03
 
 ### Added
