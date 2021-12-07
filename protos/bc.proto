@@ -382,6 +382,7 @@ service Bc {
 
     rpc GetUnmatchedOrders (GetBalanceRequest) returns (GetOpenOrdersResponse) {}
 
+    rpc GetOriginalMakerOrder (GetOutPointRequest) returns (core.Transaction) {}
     rpc GetUtxos (GetUtxosRequest) returns (core.Utxos) {}
     rpc GetUTXOLength (GetUtxoLengthRequest) returns (GetUtxoLengthResponse) {}
     rpc GetSTXOLength (GetUtxoLengthRequest) returns (GetUtxoLengthResponse) {}

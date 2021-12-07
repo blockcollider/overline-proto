@@ -392,6 +392,15 @@ type BcGetUnmatchedOrders = {
   readonly responseType: typeof bc_pb.GetOpenOrdersResponse;
 };
 
+type BcGetOriginalMakerOrder = {
+  readonly methodName: string;
+  readonly service: typeof Bc;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof bc_pb.GetOutPointRequest;
+  readonly responseType: typeof core_pb.Transaction;
+};
+
 type BcGetUtxos = {
   readonly methodName: string;
   readonly service: typeof Bc;
@@ -518,6 +527,7 @@ export class Bc {
   static readonly GetMatchedOrders: BcGetMatchedOrders;
   static readonly GetHistoricalOrders: BcGetHistoricalOrders;
   static readonly GetUnmatchedOrders: BcGetUnmatchedOrders;
+  static readonly GetOriginalMakerOrder: BcGetOriginalMakerOrder;
   static readonly GetUtxos: BcGetUtxos;
   static readonly GetUTXOLength: BcGetUTXOLength;
   static readonly GetSTXOLength: BcGetSTXOLength;
@@ -947,6 +957,15 @@ export class BcClient {
   getUnmatchedOrders(
     requestMessage: bc_pb.GetBalanceRequest,
     callback: (error: ServiceError|null, responseMessage: bc_pb.GetOpenOrdersResponse|null) => void
+  ): UnaryResponse;
+  getOriginalMakerOrder(
+    requestMessage: bc_pb.GetOutPointRequest,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: core_pb.Transaction|null) => void
+  ): UnaryResponse;
+  getOriginalMakerOrder(
+    requestMessage: bc_pb.GetOutPointRequest,
+    callback: (error: ServiceError|null, responseMessage: core_pb.Transaction|null) => void
   ): UnaryResponse;
   getUtxos(
     requestMessage: bc_pb.GetUtxosRequest,
