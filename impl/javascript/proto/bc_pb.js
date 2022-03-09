@@ -11508,7 +11508,8 @@ proto.bc.exchange.Message.toObject = function(includeInstance, msg) {
     address: jspb.Message.getFieldWithDefault(msg, 1, ""),
     message: jspb.Message.getFieldWithDefault(msg, 2, ""),
     olBalance: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    embBalance: jspb.Message.getFieldWithDefault(msg, 4, "")
+    embBalance: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    timestamp: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -11560,6 +11561,10 @@ proto.bc.exchange.Message.deserializeBinaryFromReader = function(msg, reader) {
     case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setEmbBalance(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setTimestamp(value);
       break;
     default:
       reader.skipField();
@@ -11615,6 +11620,13 @@ proto.bc.exchange.Message.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       4,
+      f
+    );
+  }
+  f = message.getTimestamp();
+  if (f !== 0) {
+    writer.writeUint64(
+      5,
       f
     );
   }
@@ -11690,6 +11702,24 @@ proto.bc.exchange.Message.prototype.getEmbBalance = function() {
  */
 proto.bc.exchange.Message.prototype.setEmbBalance = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional uint64 timestamp = 5;
+ * @return {number}
+ */
+proto.bc.exchange.Message.prototype.getTimestamp = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.bc.exchange.Message} returns this
+ */
+proto.bc.exchange.Message.prototype.setTimestamp = function(value) {
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 

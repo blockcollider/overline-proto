@@ -328,6 +328,7 @@ message Message {
     string message = 2;
     string ol_balance = 3;
     string emb_balance = 4;
+    uint64 timestamp = 5;
 }
 
 message Messages {

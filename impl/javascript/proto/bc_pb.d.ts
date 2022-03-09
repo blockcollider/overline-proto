@@ -1497,6 +1497,9 @@ export class Message extends jspb.Message {
   getEmbBalance(): string;
   setEmbBalance(value: string): void;
 
+  getTimestamp(): number;
+  setTimestamp(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Message.AsObject;
   static toObject(includeInstance: boolean, msg: Message): Message.AsObject;
@@ -1513,6 +1516,7 @@ export namespace Message {
     message: string,
     olBalance: string,
     embBalance: string,
+    timestamp: number,
   }
 }
 
