@@ -1484,6 +1484,30 @@ export namespace GetMarkedTxs {
   }
 }
 
+export class Balance extends jspb.Message {
+  getName(): string;
+  setName(value: string): void;
+
+  getAmount(): string;
+  setAmount(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Balance.AsObject;
+  static toObject(includeInstance: boolean, msg: Balance): Balance.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Balance, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Balance;
+  static deserializeBinaryFromReader(message: Balance, reader: jspb.BinaryReader): Balance;
+}
+
+export namespace Balance {
+  export type AsObject = {
+    name: string,
+    amount: string,
+  }
+}
+
 export class Message extends jspb.Message {
   getAddress(): string;
   setAddress(value: string): void;
@@ -1491,11 +1515,10 @@ export class Message extends jspb.Message {
   getMessage(): string;
   setMessage(value: string): void;
 
-  getOlBalance(): string;
-  setOlBalance(value: string): void;
-
-  getEmbBalance(): string;
-  setEmbBalance(value: string): void;
+  clearBalancesList(): void;
+  getBalancesList(): Array<Balance>;
+  setBalancesList(value: Array<Balance>): void;
+  addBalances(value?: Balance, index?: number): Balance;
 
   getTimestamp(): number;
   setTimestamp(value: number): void;
@@ -1514,8 +1537,7 @@ export namespace Message {
   export type AsObject = {
     address: string,
     message: string,
-    olBalance: string,
-    embBalance: string,
+    balancesList: Array<Balance.AsObject>,
     timestamp: number,
   }
 }

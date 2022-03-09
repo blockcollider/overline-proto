@@ -634,8 +634,8 @@ function deserialize_bc_exchange_VanityConvertResponse(buffer_arg) {
 
 
 var BcService = exports.BcService = {
-  getFeaturesMessages: {
-    path: '/bc.exchange.Bc/GetFeaturesMessages',
+  getFeaturedMessages: {
+    path: '/bc.exchange.Bc/GetFeaturedMessages',
     requestStream: false,
     responseStream: false,
     requestType: core_pb.Null,

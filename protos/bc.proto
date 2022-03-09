@@ -323,12 +323,16 @@ message GetMarkedTxs {
     repeated core.MarkedTransaction txs = 1;
 }
 
+message Balance {
+    string name = 1;
+    string amount = 2;
+}
+
 message Message {
     string address = 1;
     string message = 2;
-    string ol_balance = 3;
-    string emb_balance = 4;
-    uint64 timestamp = 5;
+    repeated Balance balances = 3;
+    uint64 timestamp = 4;
 }
 
 message Messages {
@@ -342,9 +346,10 @@ message GetSavedMessagesRequest {
 
 service Bc {
 
-    rpc GetFeaturesMessages(core.Null) returns (Messages) {}
+    rpc GetFeaturedMessages(core.Null) returns (Messages) {}
     rpc GetSavedMessages(GetSavedMessagesRequest) returns (Messages) {}
     rpc GetEphemeralMessages(core.Null) returns (Messages) {}
+
     rpc GetRoveredBlockHash(GetRoveredBlockHashRequest) returns (core.Block) {}
     rpc GetRoveredBlockHeight(GetRoveredBlockHeightRequest) returns (core.Block) {}
     rpc GetRoveredBlocks(GetRoveredBlocksRequest) returns (GetRoveredBlocksResponse) {}

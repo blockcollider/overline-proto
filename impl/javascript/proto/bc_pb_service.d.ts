@@ -5,7 +5,7 @@ import * as bc_pb from "./bc_pb";
 import * as core_pb from "./core_pb";
 import {grpc} from "@improbable-eng/grpc-web";
 
-type BcGetFeaturesMessages = {
+type BcGetFeaturedMessages = {
   readonly methodName: string;
   readonly service: typeof Bc;
   readonly requestStream: false;
@@ -511,7 +511,7 @@ type BcGetFastSyncStatus = {
 
 export class Bc {
   static readonly serviceName: string;
-  static readonly GetFeaturesMessages: BcGetFeaturesMessages;
+  static readonly GetFeaturedMessages: BcGetFeaturedMessages;
   static readonly GetSavedMessages: BcGetSavedMessages;
   static readonly GetEphemeralMessages: BcGetEphemeralMessages;
   static readonly GetRoveredBlockHash: BcGetRoveredBlockHash;
@@ -601,12 +601,12 @@ export class BcClient {
   readonly serviceHost: string;
 
   constructor(serviceHost: string, options?: grpc.RpcOptions);
-  getFeaturesMessages(
+  getFeaturedMessages(
     requestMessage: core_pb.Null,
     metadata: grpc.Metadata,
     callback: (error: ServiceError|null, responseMessage: bc_pb.Messages|null) => void
   ): UnaryResponse;
-  getFeaturesMessages(
+  getFeaturedMessages(
     requestMessage: core_pb.Null,
     callback: (error: ServiceError|null, responseMessage: bc_pb.Messages|null) => void
   ): UnaryResponse;

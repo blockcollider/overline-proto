@@ -11,8 +11,8 @@ var Bc = (function () {
   return Bc;
 }());
 
-Bc.GetFeaturesMessages = {
-  methodName: "GetFeaturesMessages",
+Bc.GetFeaturedMessages = {
+  methodName: "GetFeaturedMessages",
   service: Bc,
   requestStream: false,
   responseStream: false,
@@ -522,11 +522,11 @@ function BcClient(serviceHost, options) {
   this.options = options || {};
 }
 
-BcClient.prototype.getFeaturesMessages = function getFeaturesMessages(requestMessage, metadata, callback) {
+BcClient.prototype.getFeaturedMessages = function getFeaturedMessages(requestMessage, metadata, callback) {
   if (arguments.length === 2) {
     callback = arguments[1];
   }
-  var client = grpc.unary(Bc.GetFeaturesMessages, {
+  var client = grpc.unary(Bc.GetFeaturedMessages, {
     request: requestMessage,
     host: this.serviceHost,
     metadata: metadata,
