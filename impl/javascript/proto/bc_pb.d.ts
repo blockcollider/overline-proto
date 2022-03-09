@@ -1484,6 +1484,84 @@ export namespace GetMarkedTxs {
   }
 }
 
+export class Message extends jspb.Message {
+  getAddress(): string;
+  setAddress(value: string): void;
+
+  getMessage(): string;
+  setMessage(value: string): void;
+
+  getOlBalance(): string;
+  setOlBalance(value: string): void;
+
+  getEmbBalance(): string;
+  setEmbBalance(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Message.AsObject;
+  static toObject(includeInstance: boolean, msg: Message): Message.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Message, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Message;
+  static deserializeBinaryFromReader(message: Message, reader: jspb.BinaryReader): Message;
+}
+
+export namespace Message {
+  export type AsObject = {
+    address: string,
+    message: string,
+    olBalance: string,
+    embBalance: string,
+  }
+}
+
+export class Messages extends jspb.Message {
+  clearMessagesList(): void;
+  getMessagesList(): Array<Message>;
+  setMessagesList(value: Array<Message>): void;
+  addMessages(value?: Message, index?: number): Message;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Messages.AsObject;
+  static toObject(includeInstance: boolean, msg: Messages): Messages.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Messages, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Messages;
+  static deserializeBinaryFromReader(message: Messages, reader: jspb.BinaryReader): Messages;
+}
+
+export namespace Messages {
+  export type AsObject = {
+    messagesList: Array<Message.AsObject>,
+  }
+}
+
+export class GetSavedMessagesRequest extends jspb.Message {
+  getFrom(): number;
+  setFrom(value: number): void;
+
+  getTo(): number;
+  setTo(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetSavedMessagesRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetSavedMessagesRequest): GetSavedMessagesRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: GetSavedMessagesRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetSavedMessagesRequest;
+  static deserializeBinaryFromReader(message: GetSavedMessagesRequest, reader: jspb.BinaryReader): GetSavedMessagesRequest;
+}
+
+export namespace GetSavedMessagesRequest {
+  export type AsObject = {
+    from: number,
+    to: number,
+  }
+}
+
 export interface FeedTransactionDataTypeMap {
   TYPE1: 0;
 }

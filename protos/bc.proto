@@ -323,9 +323,27 @@ message GetMarkedTxs {
     repeated core.MarkedTransaction txs = 1;
 }
 
+message Message {
+    string address = 1;
+    string message = 2;
+    string ol_balance = 3;
+    string emb_balance = 4;
+}
+
+message Messages {
+    repeated Message messages = 1;
+}
+
+message GetSavedMessagesRequest {
+    uint64 from = 1;
+    uint64 to = 2;
+}
 
 service Bc {
 
+    rpc GetFeaturesMessages(core.Null) returns (Messages) {}
+    rpc GetSavedMessages(GetSavedMessagesRequest) returns (Messages) {}
+    rpc GetEphemeralMessages(core.Null) returns (Messages) {}
     rpc GetRoveredBlockHash(GetRoveredBlockHashRequest) returns (core.Block) {}
     rpc GetRoveredBlockHeight(GetRoveredBlockHeightRequest) returns (core.Block) {}
     rpc GetRoveredBlocks(GetRoveredBlocksRequest) returns (GetRoveredBlocksResponse) {}

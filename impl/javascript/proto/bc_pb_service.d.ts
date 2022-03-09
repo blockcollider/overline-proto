@@ -5,6 +5,33 @@ import * as bc_pb from "./bc_pb";
 import * as core_pb from "./core_pb";
 import {grpc} from "@improbable-eng/grpc-web";
 
+type BcGetFeaturesMessages = {
+  readonly methodName: string;
+  readonly service: typeof Bc;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof core_pb.Null;
+  readonly responseType: typeof bc_pb.Messages;
+};
+
+type BcGetSavedMessages = {
+  readonly methodName: string;
+  readonly service: typeof Bc;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof bc_pb.GetSavedMessagesRequest;
+  readonly responseType: typeof bc_pb.Messages;
+};
+
+type BcGetEphemeralMessages = {
+  readonly methodName: string;
+  readonly service: typeof Bc;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof core_pb.Null;
+  readonly responseType: typeof bc_pb.Messages;
+};
+
 type BcGetRoveredBlockHash = {
   readonly methodName: string;
   readonly service: typeof Bc;
@@ -484,6 +511,9 @@ type BcGetFastSyncStatus = {
 
 export class Bc {
   static readonly serviceName: string;
+  static readonly GetFeaturesMessages: BcGetFeaturesMessages;
+  static readonly GetSavedMessages: BcGetSavedMessages;
+  static readonly GetEphemeralMessages: BcGetEphemeralMessages;
   static readonly GetRoveredBlockHash: BcGetRoveredBlockHash;
   static readonly GetRoveredBlockHeight: BcGetRoveredBlockHeight;
   static readonly GetRoveredBlocks: BcGetRoveredBlocks;
@@ -571,6 +601,33 @@ export class BcClient {
   readonly serviceHost: string;
 
   constructor(serviceHost: string, options?: grpc.RpcOptions);
+  getFeaturesMessages(
+    requestMessage: core_pb.Null,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: bc_pb.Messages|null) => void
+  ): UnaryResponse;
+  getFeaturesMessages(
+    requestMessage: core_pb.Null,
+    callback: (error: ServiceError|null, responseMessage: bc_pb.Messages|null) => void
+  ): UnaryResponse;
+  getSavedMessages(
+    requestMessage: bc_pb.GetSavedMessagesRequest,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: bc_pb.Messages|null) => void
+  ): UnaryResponse;
+  getSavedMessages(
+    requestMessage: bc_pb.GetSavedMessagesRequest,
+    callback: (error: ServiceError|null, responseMessage: bc_pb.Messages|null) => void
+  ): UnaryResponse;
+  getEphemeralMessages(
+    requestMessage: core_pb.Null,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: bc_pb.Messages|null) => void
+  ): UnaryResponse;
+  getEphemeralMessages(
+    requestMessage: core_pb.Null,
+    callback: (error: ServiceError|null, responseMessage: bc_pb.Messages|null) => void
+  ): UnaryResponse;
   getRoveredBlockHash(
     requestMessage: bc_pb.GetRoveredBlockHashRequest,
     metadata: grpc.Metadata,
