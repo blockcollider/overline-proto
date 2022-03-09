@@ -16,7 +16,7 @@ Bc.GetFeaturedMessages = {
   service: Bc,
   requestStream: false,
   responseStream: false,
-  requestType: core_pb.Null,
+  requestType: bc_pb.GetMessagesRequest,
   responseType: bc_pb.Messages
 };
 
@@ -25,7 +25,7 @@ Bc.GetSavedMessages = {
   service: Bc,
   requestStream: false,
   responseStream: false,
-  requestType: bc_pb.GetSavedMessagesRequest,
+  requestType: bc_pb.GetMessagesRequest,
   responseType: bc_pb.Messages
 };
 
@@ -34,7 +34,7 @@ Bc.GetEphemeralMessages = {
   service: Bc,
   requestStream: false,
   responseStream: false,
-  requestType: core_pb.Null,
+  requestType: bc_pb.GetMessagesRequest,
   responseType: bc_pb.Messages
 };
 

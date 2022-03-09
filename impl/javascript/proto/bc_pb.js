@@ -37,6 +37,7 @@ goog.exportSymbol('proto.bc.exchange.GetHistoryRequest', null, global);
 goog.exportSymbol('proto.bc.exchange.GetMarkedTxRequest', null, global);
 goog.exportSymbol('proto.bc.exchange.GetMarkedTxs', null, global);
 goog.exportSymbol('proto.bc.exchange.GetMatchedOrdersResponse', null, global);
+goog.exportSymbol('proto.bc.exchange.GetMessagesRequest', null, global);
 goog.exportSymbol('proto.bc.exchange.GetNrgSupplyResponse', null, global);
 goog.exportSymbol('proto.bc.exchange.GetOpenOrdersResponse', null, global);
 goog.exportSymbol('proto.bc.exchange.GetOutPointRequest', null, global);
@@ -46,7 +47,6 @@ goog.exportSymbol('proto.bc.exchange.GetRoveredBlockHashRequest', null, global);
 goog.exportSymbol('proto.bc.exchange.GetRoveredBlockHeightRequest', null, global);
 goog.exportSymbol('proto.bc.exchange.GetRoveredBlocksRequest', null, global);
 goog.exportSymbol('proto.bc.exchange.GetRoveredBlocksResponse', null, global);
-goog.exportSymbol('proto.bc.exchange.GetSavedMessagesRequest', null, global);
 goog.exportSymbol('proto.bc.exchange.GetSpendableCollateralRequest', null, global);
 goog.exportSymbol('proto.bc.exchange.GetSpendableCollateralResponse', null, global);
 goog.exportSymbol('proto.bc.exchange.GetTradeStatusResponse', null, global);
@@ -1262,16 +1262,16 @@ if (true || goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.bc.exchange.GetSavedMessagesRequest = function(opt_data) {
+proto.bc.exchange.GetMessagesRequest = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.bc.exchange.GetSavedMessagesRequest, jspb.Message);
+goog.inherits(proto.bc.exchange.GetMessagesRequest, jspb.Message);
 if (true || goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.bc.exchange.GetSavedMessagesRequest.displayName = 'proto.bc.exchange.GetSavedMessagesRequest';
+  proto.bc.exchange.GetMessagesRequest.displayName = 'proto.bc.exchange.GetMessagesRequest';
 }
 
 
@@ -12081,8 +12081,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.bc.exchange.GetSavedMessagesRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.bc.exchange.GetSavedMessagesRequest.toObject(opt_includeInstance, this);
+proto.bc.exchange.GetMessagesRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.bc.exchange.GetMessagesRequest.toObject(opt_includeInstance, this);
 };
 
 
@@ -12091,11 +12091,11 @@ proto.bc.exchange.GetSavedMessagesRequest.prototype.toObject = function(opt_incl
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.bc.exchange.GetSavedMessagesRequest} msg The msg instance to transform.
+ * @param {!proto.bc.exchange.GetMessagesRequest} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.bc.exchange.GetSavedMessagesRequest.toObject = function(includeInstance, msg) {
+proto.bc.exchange.GetMessagesRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     from: jspb.Message.getFieldWithDefault(msg, 1, 0),
     to: jspb.Message.getFieldWithDefault(msg, 2, 0)
@@ -12112,23 +12112,23 @@ proto.bc.exchange.GetSavedMessagesRequest.toObject = function(includeInstance, m
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.bc.exchange.GetSavedMessagesRequest}
+ * @return {!proto.bc.exchange.GetMessagesRequest}
  */
-proto.bc.exchange.GetSavedMessagesRequest.deserializeBinary = function(bytes) {
+proto.bc.exchange.GetMessagesRequest.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.bc.exchange.GetSavedMessagesRequest;
-  return proto.bc.exchange.GetSavedMessagesRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.bc.exchange.GetMessagesRequest;
+  return proto.bc.exchange.GetMessagesRequest.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.bc.exchange.GetSavedMessagesRequest} msg The message object to deserialize into.
+ * @param {!proto.bc.exchange.GetMessagesRequest} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.bc.exchange.GetSavedMessagesRequest}
+ * @return {!proto.bc.exchange.GetMessagesRequest}
  */
-proto.bc.exchange.GetSavedMessagesRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.bc.exchange.GetMessagesRequest.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -12156,9 +12156,9 @@ proto.bc.exchange.GetSavedMessagesRequest.deserializeBinaryFromReader = function
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.bc.exchange.GetSavedMessagesRequest.prototype.serializeBinary = function() {
+proto.bc.exchange.GetMessagesRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.bc.exchange.GetSavedMessagesRequest.serializeBinaryToWriter(this, writer);
+  proto.bc.exchange.GetMessagesRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -12166,11 +12166,11 @@ proto.bc.exchange.GetSavedMessagesRequest.prototype.serializeBinary = function()
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.bc.exchange.GetSavedMessagesRequest} message
+ * @param {!proto.bc.exchange.GetMessagesRequest} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.bc.exchange.GetSavedMessagesRequest.serializeBinaryToWriter = function(message, writer) {
+proto.bc.exchange.GetMessagesRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getFrom();
   if (f !== 0) {
@@ -12193,16 +12193,16 @@ proto.bc.exchange.GetSavedMessagesRequest.serializeBinaryToWriter = function(mes
  * optional uint64 from = 1;
  * @return {number}
  */
-proto.bc.exchange.GetSavedMessagesRequest.prototype.getFrom = function() {
+proto.bc.exchange.GetMessagesRequest.prototype.getFrom = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
 /**
  * @param {number} value
- * @return {!proto.bc.exchange.GetSavedMessagesRequest} returns this
+ * @return {!proto.bc.exchange.GetMessagesRequest} returns this
  */
-proto.bc.exchange.GetSavedMessagesRequest.prototype.setFrom = function(value) {
+proto.bc.exchange.GetMessagesRequest.prototype.setFrom = function(value) {
   return jspb.Message.setProto3IntField(this, 1, value);
 };
 
@@ -12211,16 +12211,16 @@ proto.bc.exchange.GetSavedMessagesRequest.prototype.setFrom = function(value) {
  * optional uint64 to = 2;
  * @return {number}
  */
-proto.bc.exchange.GetSavedMessagesRequest.prototype.getTo = function() {
+proto.bc.exchange.GetMessagesRequest.prototype.getTo = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
 /**
  * @param {number} value
- * @return {!proto.bc.exchange.GetSavedMessagesRequest} returns this
+ * @return {!proto.bc.exchange.GetMessagesRequest} returns this
  */
-proto.bc.exchange.GetSavedMessagesRequest.prototype.setTo = function(value) {
+proto.bc.exchange.GetMessagesRequest.prototype.setTo = function(value) {
   return jspb.Message.setProto3IntField(this, 2, value);
 };
 

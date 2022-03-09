@@ -339,16 +339,16 @@ message Messages {
     repeated Message messages = 1;
 }
 
-message GetSavedMessagesRequest {
+message GetMessagesRequest {
     uint64 from = 1;
     uint64 to = 2;
 }
 
 service Bc {
 
-    rpc GetFeaturedMessages(core.Null) returns (Messages) {}
-    rpc GetSavedMessages(GetSavedMessagesRequest) returns (Messages) {}
-    rpc GetEphemeralMessages(core.Null) returns (Messages) {}
+    rpc GetFeaturedMessages(GetMessagesRequest) returns (Messages) {}
+    rpc GetSavedMessages(GetMessagesRequest) returns (Messages) {}
+    rpc GetEphemeralMessages(GetMessagesRequest) returns (Messages) {}
 
     rpc GetRoveredBlockHash(GetRoveredBlockHashRequest) returns (core.Block) {}
     rpc GetRoveredBlockHeight(GetRoveredBlockHeightRequest) returns (core.Block) {}

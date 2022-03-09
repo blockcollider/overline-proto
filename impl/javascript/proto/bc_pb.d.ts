@@ -1564,7 +1564,7 @@ export namespace Messages {
   }
 }
 
-export class GetSavedMessagesRequest extends jspb.Message {
+export class GetMessagesRequest extends jspb.Message {
   getFrom(): number;
   setFrom(value: number): void;
 
@@ -1572,16 +1572,16 @@ export class GetSavedMessagesRequest extends jspb.Message {
   setTo(value: number): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): GetSavedMessagesRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: GetSavedMessagesRequest): GetSavedMessagesRequest.AsObject;
+  toObject(includeInstance?: boolean): GetMessagesRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetMessagesRequest): GetMessagesRequest.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: GetSavedMessagesRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): GetSavedMessagesRequest;
-  static deserializeBinaryFromReader(message: GetSavedMessagesRequest, reader: jspb.BinaryReader): GetSavedMessagesRequest;
+  static serializeBinaryToWriter(message: GetMessagesRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetMessagesRequest;
+  static deserializeBinaryFromReader(message: GetMessagesRequest, reader: jspb.BinaryReader): GetMessagesRequest;
 }
 
-export namespace GetSavedMessagesRequest {
+export namespace GetMessagesRequest {
   export type AsObject = {
     from: number,
     to: number,
