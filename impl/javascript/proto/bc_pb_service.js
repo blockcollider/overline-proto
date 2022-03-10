@@ -11,6 +11,33 @@ var Bc = (function () {
   return Bc;
 }());
 
+Bc.GetFeaturedFeedMessages = {
+  methodName: "GetFeaturedFeedMessages",
+  service: Bc,
+  requestStream: false,
+  responseStream: false,
+  requestType: bc_pb.GetFeedMessagesRequest,
+  responseType: bc_pb.FeedMessages
+};
+
+Bc.GetSavedFeedMessages = {
+  methodName: "GetSavedFeedMessages",
+  service: Bc,
+  requestStream: false,
+  responseStream: false,
+  requestType: bc_pb.GetFeedMessagesRequest,
+  responseType: bc_pb.FeedMessages
+};
+
+Bc.GetEphemeralFeedMessages = {
+  methodName: "GetEphemeralFeedMessages",
+  service: Bc,
+  requestStream: false,
+  responseStream: false,
+  requestType: bc_pb.GetFeedMessagesRequest,
+  responseType: bc_pb.FeedMessages
+};
+
 Bc.GetRoveredBlockHash = {
   methodName: "GetRoveredBlockHash",
   service: Bc,
@@ -494,6 +521,99 @@ function BcClient(serviceHost, options) {
   this.serviceHost = serviceHost;
   this.options = options || {};
 }
+
+BcClient.prototype.getFeaturedFeedMessages = function getFeaturedFeedMessages(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(Bc.GetFeaturedFeedMessages, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+BcClient.prototype.getSavedFeedMessages = function getSavedFeedMessages(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(Bc.GetSavedFeedMessages, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+BcClient.prototype.getEphemeralFeedMessages = function getEphemeralFeedMessages(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(Bc.GetEphemeralFeedMessages, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
 
 BcClient.prototype.getRoveredBlockHash = function getRoveredBlockHash(requestMessage, metadata, callback) {
   if (arguments.length === 2) {

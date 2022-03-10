@@ -1484,6 +1484,110 @@ export namespace GetMarkedTxs {
   }
 }
 
+export class FeedBalance extends jspb.Message {
+  getName(): string;
+  setName(value: string): void;
+
+  getAmount(): string;
+  setAmount(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): FeedBalance.AsObject;
+  static toObject(includeInstance: boolean, msg: FeedBalance): FeedBalance.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: FeedBalance, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): FeedBalance;
+  static deserializeBinaryFromReader(message: FeedBalance, reader: jspb.BinaryReader): FeedBalance;
+}
+
+export namespace FeedBalance {
+  export type AsObject = {
+    name: string,
+    amount: string,
+  }
+}
+
+export class FeedMessage extends jspb.Message {
+  getAddress(): string;
+  setAddress(value: string): void;
+
+  getMessage(): string;
+  setMessage(value: string): void;
+
+  clearBalancesList(): void;
+  getBalancesList(): Array<FeedBalance>;
+  setBalancesList(value: Array<FeedBalance>): void;
+  addBalances(value?: FeedBalance, index?: number): FeedBalance;
+
+  getTimestamp(): number;
+  setTimestamp(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): FeedMessage.AsObject;
+  static toObject(includeInstance: boolean, msg: FeedMessage): FeedMessage.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: FeedMessage, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): FeedMessage;
+  static deserializeBinaryFromReader(message: FeedMessage, reader: jspb.BinaryReader): FeedMessage;
+}
+
+export namespace FeedMessage {
+  export type AsObject = {
+    address: string,
+    message: string,
+    balancesList: Array<FeedBalance.AsObject>,
+    timestamp: number,
+  }
+}
+
+export class FeedMessages extends jspb.Message {
+  clearMessagesList(): void;
+  getMessagesList(): Array<FeedMessage>;
+  setMessagesList(value: Array<FeedMessage>): void;
+  addMessages(value?: FeedMessage, index?: number): FeedMessage;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): FeedMessages.AsObject;
+  static toObject(includeInstance: boolean, msg: FeedMessages): FeedMessages.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: FeedMessages, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): FeedMessages;
+  static deserializeBinaryFromReader(message: FeedMessages, reader: jspb.BinaryReader): FeedMessages;
+}
+
+export namespace FeedMessages {
+  export type AsObject = {
+    messagesList: Array<FeedMessage.AsObject>,
+  }
+}
+
+export class GetFeedMessagesRequest extends jspb.Message {
+  getFrom(): number;
+  setFrom(value: number): void;
+
+  getTo(): number;
+  setTo(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetFeedMessagesRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetFeedMessagesRequest): GetFeedMessagesRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: GetFeedMessagesRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetFeedMessagesRequest;
+  static deserializeBinaryFromReader(message: GetFeedMessagesRequest, reader: jspb.BinaryReader): GetFeedMessagesRequest;
+}
+
+export namespace GetFeedMessagesRequest {
+  export type AsObject = {
+    from: number,
+    to: number,
+  }
+}
+
 export interface FeedTransactionDataTypeMap {
   TYPE1: 0;
 }

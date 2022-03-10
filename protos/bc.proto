@@ -323,8 +323,32 @@ message GetMarkedTxs {
     repeated core.MarkedTransaction txs = 1;
 }
 
+message FeedBalance {
+    string name = 1;
+    string amount = 2;
+}
+
+message FeedMessage {
+    string address = 1;
+    string message = 2;
+    repeated FeedBalance balances = 3;
+    uint64 timestamp = 4;
+}
+
+message FeedMessages {
+    repeated FeedMessage messages = 1;
+}
+
+message GetFeedMessagesRequest {
+    uint64 from = 1;
+    uint64 to = 2;
+}
 
 service Bc {
+
+    rpc GetFeaturedFeedMessages(GetFeedMessagesRequest) returns (FeedMessages) {}
+    rpc GetSavedFeedMessages(GetFeedMessagesRequest) returns (FeedMessages) {}
+    rpc GetEphemeralFeedMessages(GetFeedMessagesRequest) returns (FeedMessages) {}
 
     rpc GetRoveredBlockHash(GetRoveredBlockHashRequest) returns (core.Block) {}
     rpc GetRoveredBlockHeight(GetRoveredBlockHeightRequest) returns (core.Block) {}
