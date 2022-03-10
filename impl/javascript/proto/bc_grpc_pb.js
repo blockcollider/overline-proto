@@ -93,6 +93,17 @@ function deserialize_bc_exchange_CurrentWork(buffer_arg) {
   return bc_pb.CurrentWork.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_bc_exchange_FeedMessages(arg) {
+  if (!(arg instanceof bc_pb.FeedMessages)) {
+    throw new Error('Expected argument of type bc.exchange.FeedMessages');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_bc_exchange_FeedMessages(buffer_arg) {
+  return bc_pb.FeedMessages.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_bc_exchange_GetBalanceRequest(arg) {
   if (!(arg instanceof bc_pb.GetBalanceRequest)) {
     throw new Error('Expected argument of type bc.exchange.GetBalanceRequest');
@@ -500,17 +511,6 @@ function deserialize_bc_exchange_HelpResponse(buffer_arg) {
   return bc_pb.HelpResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_bc_exchange_Messages(arg) {
-  if (!(arg instanceof bc_pb.Messages)) {
-    throw new Error('Expected argument of type bc.exchange.Messages');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_bc_exchange_Messages(buffer_arg) {
-  return bc_pb.Messages.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
 function serialize_bc_exchange_RpcFeedTransactionRequest(arg) {
   if (!(arg instanceof bc_pb.RpcFeedTransactionRequest)) {
     throw new Error('Expected argument of type bc.exchange.RpcFeedTransactionRequest');
@@ -634,38 +634,38 @@ function deserialize_bc_exchange_VanityConvertResponse(buffer_arg) {
 
 
 var BcService = exports.BcService = {
-  getFeaturedMessages: {
-    path: '/bc.exchange.Bc/GetFeaturedMessages',
+  getFeaturedFeedMessages: {
+    path: '/bc.exchange.Bc/GetFeaturedFeedMessages',
     requestStream: false,
     responseStream: false,
     requestType: bc_pb.GetMessagesRequest,
-    responseType: bc_pb.Messages,
+    responseType: bc_pb.FeedMessages,
     requestSerialize: serialize_bc_exchange_GetMessagesRequest,
     requestDeserialize: deserialize_bc_exchange_GetMessagesRequest,
-    responseSerialize: serialize_bc_exchange_Messages,
-    responseDeserialize: deserialize_bc_exchange_Messages,
+    responseSerialize: serialize_bc_exchange_FeedMessages,
+    responseDeserialize: deserialize_bc_exchange_FeedMessages,
   },
-  getSavedMessages: {
-    path: '/bc.exchange.Bc/GetSavedMessages',
+  getSavedFeedMessages: {
+    path: '/bc.exchange.Bc/GetSavedFeedMessages',
     requestStream: false,
     responseStream: false,
     requestType: bc_pb.GetMessagesRequest,
-    responseType: bc_pb.Messages,
+    responseType: bc_pb.FeedMessages,
     requestSerialize: serialize_bc_exchange_GetMessagesRequest,
     requestDeserialize: deserialize_bc_exchange_GetMessagesRequest,
-    responseSerialize: serialize_bc_exchange_Messages,
-    responseDeserialize: deserialize_bc_exchange_Messages,
+    responseSerialize: serialize_bc_exchange_FeedMessages,
+    responseDeserialize: deserialize_bc_exchange_FeedMessages,
   },
-  getEphemeralMessages: {
-    path: '/bc.exchange.Bc/GetEphemeralMessages',
+  getEphemeralFeedMessages: {
+    path: '/bc.exchange.Bc/GetEphemeralFeedMessages',
     requestStream: false,
     responseStream: false,
     requestType: bc_pb.GetMessagesRequest,
-    responseType: bc_pb.Messages,
+    responseType: bc_pb.FeedMessages,
     requestSerialize: serialize_bc_exchange_GetMessagesRequest,
     requestDeserialize: deserialize_bc_exchange_GetMessagesRequest,
-    responseSerialize: serialize_bc_exchange_Messages,
-    responseDeserialize: deserialize_bc_exchange_Messages,
+    responseSerialize: serialize_bc_exchange_FeedMessages,
+    responseDeserialize: deserialize_bc_exchange_FeedMessages,
   },
   getRoveredBlockHash: {
     path: '/bc.exchange.Bc/GetRoveredBlockHash',

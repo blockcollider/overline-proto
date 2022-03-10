@@ -328,15 +328,15 @@ message Balance {
     string amount = 2;
 }
 
-message Message {
+message FeedMessage {
     string address = 1;
     string message = 2;
     repeated Balance balances = 3;
     uint64 timestamp = 4;
 }
 
-message Messages {
-    repeated Message messages = 1;
+message FeedMessages {
+    repeated FeedMessage messages = 1;
 }
 
 message GetMessagesRequest {
@@ -346,9 +346,9 @@ message GetMessagesRequest {
 
 service Bc {
 
-    rpc GetFeaturedMessages(GetMessagesRequest) returns (Messages) {}
-    rpc GetSavedMessages(GetMessagesRequest) returns (Messages) {}
-    rpc GetEphemeralMessages(GetMessagesRequest) returns (Messages) {}
+    rpc GetFeaturedFeedMessages(GetMessagesRequest) returns (FeedMessages) {}
+    rpc GetSavedFeedMessages(GetMessagesRequest) returns (FeedMessages) {}
+    rpc GetEphemeralFeedMessages(GetMessagesRequest) returns (FeedMessages) {}
 
     rpc GetRoveredBlockHash(GetRoveredBlockHashRequest) returns (core.Block) {}
     rpc GetRoveredBlockHeight(GetRoveredBlockHeightRequest) returns (core.Block) {}

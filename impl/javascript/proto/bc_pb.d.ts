@@ -1508,7 +1508,7 @@ export namespace Balance {
   }
 }
 
-export class Message extends jspb.Message {
+export class FeedMessage extends jspb.Message {
   getAddress(): string;
   setAddress(value: string): void;
 
@@ -1524,16 +1524,16 @@ export class Message extends jspb.Message {
   setTimestamp(value: number): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): Message.AsObject;
-  static toObject(includeInstance: boolean, msg: Message): Message.AsObject;
+  toObject(includeInstance?: boolean): FeedMessage.AsObject;
+  static toObject(includeInstance: boolean, msg: FeedMessage): FeedMessage.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Message, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Message;
-  static deserializeBinaryFromReader(message: Message, reader: jspb.BinaryReader): Message;
+  static serializeBinaryToWriter(message: FeedMessage, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): FeedMessage;
+  static deserializeBinaryFromReader(message: FeedMessage, reader: jspb.BinaryReader): FeedMessage;
 }
 
-export namespace Message {
+export namespace FeedMessage {
   export type AsObject = {
     address: string,
     message: string,
@@ -1542,25 +1542,25 @@ export namespace Message {
   }
 }
 
-export class Messages extends jspb.Message {
+export class FeedMessages extends jspb.Message {
   clearMessagesList(): void;
-  getMessagesList(): Array<Message>;
-  setMessagesList(value: Array<Message>): void;
-  addMessages(value?: Message, index?: number): Message;
+  getMessagesList(): Array<FeedMessage>;
+  setMessagesList(value: Array<FeedMessage>): void;
+  addMessages(value?: FeedMessage, index?: number): FeedMessage;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): Messages.AsObject;
-  static toObject(includeInstance: boolean, msg: Messages): Messages.AsObject;
+  toObject(includeInstance?: boolean): FeedMessages.AsObject;
+  static toObject(includeInstance: boolean, msg: FeedMessages): FeedMessages.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Messages, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Messages;
-  static deserializeBinaryFromReader(message: Messages, reader: jspb.BinaryReader): Messages;
+  static serializeBinaryToWriter(message: FeedMessages, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): FeedMessages;
+  static deserializeBinaryFromReader(message: FeedMessages, reader: jspb.BinaryReader): FeedMessages;
 }
 
-export namespace Messages {
+export namespace FeedMessages {
   export type AsObject = {
-    messagesList: Array<Message.AsObject>,
+    messagesList: Array<FeedMessage.AsObject>,
   }
 }
 

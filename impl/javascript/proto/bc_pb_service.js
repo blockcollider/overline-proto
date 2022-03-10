@@ -11,31 +11,31 @@ var Bc = (function () {
   return Bc;
 }());
 
-Bc.GetFeaturedMessages = {
-  methodName: "GetFeaturedMessages",
+Bc.GetFeaturedFeedMessages = {
+  methodName: "GetFeaturedFeedMessages",
   service: Bc,
   requestStream: false,
   responseStream: false,
   requestType: bc_pb.GetMessagesRequest,
-  responseType: bc_pb.Messages
+  responseType: bc_pb.FeedMessages
 };
 
-Bc.GetSavedMessages = {
-  methodName: "GetSavedMessages",
+Bc.GetSavedFeedMessages = {
+  methodName: "GetSavedFeedMessages",
   service: Bc,
   requestStream: false,
   responseStream: false,
   requestType: bc_pb.GetMessagesRequest,
-  responseType: bc_pb.Messages
+  responseType: bc_pb.FeedMessages
 };
 
-Bc.GetEphemeralMessages = {
-  methodName: "GetEphemeralMessages",
+Bc.GetEphemeralFeedMessages = {
+  methodName: "GetEphemeralFeedMessages",
   service: Bc,
   requestStream: false,
   responseStream: false,
   requestType: bc_pb.GetMessagesRequest,
-  responseType: bc_pb.Messages
+  responseType: bc_pb.FeedMessages
 };
 
 Bc.GetRoveredBlockHash = {
@@ -522,11 +522,11 @@ function BcClient(serviceHost, options) {
   this.options = options || {};
 }
 
-BcClient.prototype.getFeaturedMessages = function getFeaturedMessages(requestMessage, metadata, callback) {
+BcClient.prototype.getFeaturedFeedMessages = function getFeaturedFeedMessages(requestMessage, metadata, callback) {
   if (arguments.length === 2) {
     callback = arguments[1];
   }
-  var client = grpc.unary(Bc.GetFeaturedMessages, {
+  var client = grpc.unary(Bc.GetFeaturedFeedMessages, {
     request: requestMessage,
     host: this.serviceHost,
     metadata: metadata,
@@ -553,11 +553,11 @@ BcClient.prototype.getFeaturedMessages = function getFeaturedMessages(requestMes
   };
 };
 
-BcClient.prototype.getSavedMessages = function getSavedMessages(requestMessage, metadata, callback) {
+BcClient.prototype.getSavedFeedMessages = function getSavedFeedMessages(requestMessage, metadata, callback) {
   if (arguments.length === 2) {
     callback = arguments[1];
   }
-  var client = grpc.unary(Bc.GetSavedMessages, {
+  var client = grpc.unary(Bc.GetSavedFeedMessages, {
     request: requestMessage,
     host: this.serviceHost,
     metadata: metadata,
@@ -584,11 +584,11 @@ BcClient.prototype.getSavedMessages = function getSavedMessages(requestMessage, 
   };
 };
 
-BcClient.prototype.getEphemeralMessages = function getEphemeralMessages(requestMessage, metadata, callback) {
+BcClient.prototype.getEphemeralFeedMessages = function getEphemeralFeedMessages(requestMessage, metadata, callback) {
   if (arguments.length === 2) {
     callback = arguments[1];
   }
-  var client = grpc.unary(Bc.GetEphemeralMessages, {
+  var client = grpc.unary(Bc.GetEphemeralFeedMessages, {
     request: requestMessage,
     host: this.serviceHost,
     metadata: metadata,
