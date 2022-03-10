@@ -1484,7 +1484,7 @@ export namespace GetMarkedTxs {
   }
 }
 
-export class Balance extends jspb.Message {
+export class FeedBalance extends jspb.Message {
   getName(): string;
   setName(value: string): void;
 
@@ -1492,16 +1492,16 @@ export class Balance extends jspb.Message {
   setAmount(value: string): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): Balance.AsObject;
-  static toObject(includeInstance: boolean, msg: Balance): Balance.AsObject;
+  toObject(includeInstance?: boolean): FeedBalance.AsObject;
+  static toObject(includeInstance: boolean, msg: FeedBalance): FeedBalance.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Balance, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Balance;
-  static deserializeBinaryFromReader(message: Balance, reader: jspb.BinaryReader): Balance;
+  static serializeBinaryToWriter(message: FeedBalance, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): FeedBalance;
+  static deserializeBinaryFromReader(message: FeedBalance, reader: jspb.BinaryReader): FeedBalance;
 }
 
-export namespace Balance {
+export namespace FeedBalance {
   export type AsObject = {
     name: string,
     amount: string,
@@ -1516,9 +1516,9 @@ export class FeedMessage extends jspb.Message {
   setMessage(value: string): void;
 
   clearBalancesList(): void;
-  getBalancesList(): Array<Balance>;
-  setBalancesList(value: Array<Balance>): void;
-  addBalances(value?: Balance, index?: number): Balance;
+  getBalancesList(): Array<FeedBalance>;
+  setBalancesList(value: Array<FeedBalance>): void;
+  addBalances(value?: FeedBalance, index?: number): FeedBalance;
 
   getTimestamp(): number;
   setTimestamp(value: number): void;
@@ -1537,7 +1537,7 @@ export namespace FeedMessage {
   export type AsObject = {
     address: string,
     message: string,
-    balancesList: Array<Balance.AsObject>,
+    balancesList: Array<FeedBalance.AsObject>,
     timestamp: number,
   }
 }

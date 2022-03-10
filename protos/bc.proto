@@ -323,7 +323,7 @@ message GetMarkedTxs {
     repeated core.MarkedTransaction txs = 1;
 }
 
-message Balance {
+message FeedBalance {
     string name = 1;
     string amount = 2;
 }
@@ -331,7 +331,7 @@ message Balance {
 message FeedMessage {
     string address = 1;
     string message = 2;
-    repeated Balance balances = 3;
+    repeated FeedBalance balances = 3;
     uint64 timestamp = 4;
 }
 
