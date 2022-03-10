@@ -339,16 +339,16 @@ message FeedMessages {
     repeated FeedMessage messages = 1;
 }
 
-message GetMessagesRequest {
+message GetFeedMessagesRequest {
     uint64 from = 1;
     uint64 to = 2;
 }
 
 service Bc {
 
-    rpc GetFeaturedFeedMessages(GetMessagesRequest) returns (FeedMessages) {}
-    rpc GetSavedFeedMessages(GetMessagesRequest) returns (FeedMessages) {}
-    rpc GetEphemeralFeedMessages(GetMessagesRequest) returns (FeedMessages) {}
+    rpc GetFeaturedFeedMessages(GetFeedMessagesRequest) returns (FeedMessages) {}
+    rpc GetSavedFeedMessages(GetFeedMessagesRequest) returns (FeedMessages) {}
+    rpc GetEphemeralFeedMessages(GetFeedMessagesRequest) returns (FeedMessages) {}
 
     rpc GetRoveredBlockHash(GetRoveredBlockHashRequest) returns (core.Block) {}
     rpc GetRoveredBlockHeight(GetRoveredBlockHeightRequest) returns (core.Block) {}

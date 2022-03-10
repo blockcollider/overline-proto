@@ -16,7 +16,7 @@ Bc.GetFeaturedFeedMessages = {
   service: Bc,
   requestStream: false,
   responseStream: false,
-  requestType: bc_pb.GetMessagesRequest,
+  requestType: bc_pb.GetFeedMessagesRequest,
   responseType: bc_pb.FeedMessages
 };
 
@@ -25,7 +25,7 @@ Bc.GetSavedFeedMessages = {
   service: Bc,
   requestStream: false,
   responseStream: false,
-  requestType: bc_pb.GetMessagesRequest,
+  requestType: bc_pb.GetFeedMessagesRequest,
   responseType: bc_pb.FeedMessages
 };
 
@@ -34,7 +34,7 @@ Bc.GetEphemeralFeedMessages = {
   service: Bc,
   requestStream: false,
   responseStream: false,
-  requestType: bc_pb.GetMessagesRequest,
+  requestType: bc_pb.GetFeedMessagesRequest,
   responseType: bc_pb.FeedMessages
 };
 

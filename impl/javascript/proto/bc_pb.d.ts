@@ -1564,7 +1564,7 @@ export namespace FeedMessages {
   }
 }
 
-export class GetMessagesRequest extends jspb.Message {
+export class GetFeedMessagesRequest extends jspb.Message {
   getFrom(): number;
   setFrom(value: number): void;
 
@@ -1572,16 +1572,16 @@ export class GetMessagesRequest extends jspb.Message {
   setTo(value: number): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): GetMessagesRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: GetMessagesRequest): GetMessagesRequest.AsObject;
+  toObject(includeInstance?: boolean): GetFeedMessagesRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetFeedMessagesRequest): GetFeedMessagesRequest.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: GetMessagesRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): GetMessagesRequest;
-  static deserializeBinaryFromReader(message: GetMessagesRequest, reader: jspb.BinaryReader): GetMessagesRequest;
+  static serializeBinaryToWriter(message: GetFeedMessagesRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetFeedMessagesRequest;
+  static deserializeBinaryFromReader(message: GetFeedMessagesRequest, reader: jspb.BinaryReader): GetFeedMessagesRequest;
 }
 
-export namespace GetMessagesRequest {
+export namespace GetFeedMessagesRequest {
   export type AsObject = {
     from: number,
     to: number,

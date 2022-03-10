@@ -10,7 +10,7 @@ type BcGetFeaturedFeedMessages = {
   readonly service: typeof Bc;
   readonly requestStream: false;
   readonly responseStream: false;
-  readonly requestType: typeof bc_pb.GetMessagesRequest;
+  readonly requestType: typeof bc_pb.GetFeedMessagesRequest;
   readonly responseType: typeof bc_pb.FeedMessages;
 };
 
@@ -19,7 +19,7 @@ type BcGetSavedFeedMessages = {
   readonly service: typeof Bc;
   readonly requestStream: false;
   readonly responseStream: false;
-  readonly requestType: typeof bc_pb.GetMessagesRequest;
+  readonly requestType: typeof bc_pb.GetFeedMessagesRequest;
   readonly responseType: typeof bc_pb.FeedMessages;
 };
 
@@ -28,7 +28,7 @@ type BcGetEphemeralFeedMessages = {
   readonly service: typeof Bc;
   readonly requestStream: false;
   readonly responseStream: false;
-  readonly requestType: typeof bc_pb.GetMessagesRequest;
+  readonly requestType: typeof bc_pb.GetFeedMessagesRequest;
   readonly responseType: typeof bc_pb.FeedMessages;
 };
 
@@ -602,30 +602,30 @@ export class BcClient {
 
   constructor(serviceHost: string, options?: grpc.RpcOptions);
   getFeaturedFeedMessages(
-    requestMessage: bc_pb.GetMessagesRequest,
+    requestMessage: bc_pb.GetFeedMessagesRequest,
     metadata: grpc.Metadata,
     callback: (error: ServiceError|null, responseMessage: bc_pb.FeedMessages|null) => void
   ): UnaryResponse;
   getFeaturedFeedMessages(
-    requestMessage: bc_pb.GetMessagesRequest,
+    requestMessage: bc_pb.GetFeedMessagesRequest,
     callback: (error: ServiceError|null, responseMessage: bc_pb.FeedMessages|null) => void
   ): UnaryResponse;
   getSavedFeedMessages(
-    requestMessage: bc_pb.GetMessagesRequest,
+    requestMessage: bc_pb.GetFeedMessagesRequest,
     metadata: grpc.Metadata,
     callback: (error: ServiceError|null, responseMessage: bc_pb.FeedMessages|null) => void
   ): UnaryResponse;
   getSavedFeedMessages(
-    requestMessage: bc_pb.GetMessagesRequest,
+    requestMessage: bc_pb.GetFeedMessagesRequest,
     callback: (error: ServiceError|null, responseMessage: bc_pb.FeedMessages|null) => void
   ): UnaryResponse;
   getEphemeralFeedMessages(
-    requestMessage: bc_pb.GetMessagesRequest,
+    requestMessage: bc_pb.GetFeedMessagesRequest,
     metadata: grpc.Metadata,
     callback: (error: ServiceError|null, responseMessage: bc_pb.FeedMessages|null) => void
   ): UnaryResponse;
   getEphemeralFeedMessages(
-    requestMessage: bc_pb.GetMessagesRequest,
+    requestMessage: bc_pb.GetFeedMessagesRequest,
     callback: (error: ServiceError|null, responseMessage: bc_pb.FeedMessages|null) => void
   ): UnaryResponse;
   getRoveredBlockHash(
