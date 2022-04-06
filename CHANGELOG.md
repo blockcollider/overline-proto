@@ -4,9 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- Introduce new BcMessages message with a list of FeedMessage as only member
+
 ### [0.3.3] - 2022-03-09
 
-- Introduced new proto objects and  rpc calls for ephemeral and saved feed messages.  
+- Introduced new proto objects and  rpc calls for ephemeral and saved feed messages.
 
 ## [0.3.2] - 2021-12-07
 
@@ -16,7 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Introduced a new rpc call (GetOriginalMakerOrder) that returns the original Maker Transaction with respect to the transaction hash and index provided as arguments.  
+- Introduced a new rpc call (GetOriginalMakerOrder) that returns the original Maker Transaction with respect to the transaction hash and index provided as arguments.
 
 
 ## [0.3.1] - 2021-12-03
