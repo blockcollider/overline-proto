@@ -3,6 +3,7 @@
 
 import * as jspb from "google-protobuf";
 import * as core_pb from "./core_pb";
+import * as bc_pb from "./bc_pb";
 
 export class InitialPeer extends jspb.Message {
   getAddress(): string;
@@ -63,6 +64,28 @@ export class BcBlocks extends jspb.Message {
 export namespace BcBlocks {
   export type AsObject = {
     blocksList: Array<core_pb.BcBlock.AsObject>,
+  }
+}
+
+export class BcMessages extends jspb.Message {
+  clearMessagesList(): void;
+  getMessagesList(): Array<bc_pb.FeedMessage>;
+  setMessagesList(value: Array<bc_pb.FeedMessage>): void;
+  addMessages(value?: bc_pb.FeedMessage, index?: number): bc_pb.FeedMessage;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BcMessages.AsObject;
+  static toObject(includeInstance: boolean, msg: BcMessages): BcMessages.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: BcMessages, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BcMessages;
+  static deserializeBinaryFromReader(message: BcMessages, reader: jspb.BinaryReader): BcMessages;
+}
+
+export namespace BcMessages {
+  export type AsObject = {
+    messagesList: Array<bc_pb.FeedMessage.AsObject>,
   }
 }
 
