@@ -3,6 +3,7 @@ syntax = "proto3";
 package bc.p2p;
 
 import "core.proto";
+import "bc.proto";
 
 message InitialPeer {
   string address = 1;
@@ -14,6 +15,10 @@ message InitialPeerEvents {
 
 message BcBlocks {
   repeated core.BcBlock blocks = 1;
+}
+
+message BcMessages {
+  repeated exchange.FeedMessage messages = 1;
 }
 
 // Services: over-the-air OP_X update
