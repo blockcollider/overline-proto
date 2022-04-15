@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- google-protobuf, @grpc/grpc-js and bn.js are just peerDependencies
+
 ### Fixed
 
 - Reported depenedency vulnerabilities
