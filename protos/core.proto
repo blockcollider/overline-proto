@@ -142,3 +142,9 @@ message BlockchainHeader {
     repeated MarkedTransaction marked_txs = 8;
     uint64 marked_tx_count = 9;
 }
+
+message AppVersion {
+  string version = 1;
+  string commit = 2;
+  uint32 db_version = 3;
+}
