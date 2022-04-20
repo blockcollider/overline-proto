@@ -30,6 +30,11 @@ export namespace InitialPeer {
 }
 
 export class InitialPeerEvents extends jspb.Message {
+  clearEventsList(): void;
+  getEventsList(): Array<InitialPeerEvent>;
+  setEventsList(value: Array<InitialPeerEvent>): void;
+  addEvents(value?: InitialPeerEvent, index?: number): InitialPeerEvent;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): InitialPeerEvents.AsObject;
   static toObject(includeInstance: boolean, msg: InitialPeerEvents): InitialPeerEvents.AsObject;
@@ -42,6 +47,65 @@ export class InitialPeerEvents extends jspb.Message {
 
 export namespace InitialPeerEvents {
   export type AsObject = {
+    eventsList: Array<InitialPeerEvent.AsObject>,
+  }
+}
+
+export class InitialPeerEvent extends jspb.Message {
+  getAddress(): string;
+  setAddress(value: string): void;
+
+  getTimestamp(): number;
+  setTimestamp(value: number): void;
+
+  getType(): EventTypeMap[keyof EventTypeMap];
+  setType(value: EventTypeMap[keyof EventTypeMap]): void;
+
+  hasBlock(): boolean;
+  clearBlock(): void;
+  getBlock(): core_pb.BcBlock | undefined;
+  setBlock(value?: core_pb.BcBlock): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): InitialPeerEvent.AsObject;
+  static toObject(includeInstance: boolean, msg: InitialPeerEvent): InitialPeerEvent.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: InitialPeerEvent, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): InitialPeerEvent;
+  static deserializeBinaryFromReader(message: InitialPeerEvent, reader: jspb.BinaryReader): InitialPeerEvent;
+}
+
+export namespace InitialPeerEvent {
+  export type AsObject = {
+    address: string,
+    timestamp: number,
+    type: EventTypeMap[keyof EventTypeMap],
+    block?: core_pb.BcBlock.AsObject,
+  }
+}
+
+export class DhtId extends jspb.Message {
+  getId(): string;
+  setId(value: string): void;
+
+  getTimestamp(): string;
+  setTimestamp(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): DhtId.AsObject;
+  static toObject(includeInstance: boolean, msg: DhtId): DhtId.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: DhtId, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): DhtId;
+  static deserializeBinaryFromReader(message: DhtId, reader: jspb.BinaryReader): DhtId;
+}
+
+export namespace DhtId {
+  export type AsObject = {
+    id: string,
+    timestamp: string,
   }
 }
 
@@ -270,4 +334,11 @@ export namespace PutConfig {
     servicesList: Array<PutService.AsObject>,
   }
 }
+
+export interface EventTypeMap {
+  START: 0;
+  STOP: 1;
+}
+
+export const EventType: EventTypeMap;
 

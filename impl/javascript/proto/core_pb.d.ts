@@ -689,3 +689,31 @@ export namespace BlockchainHeader {
   }
 }
 
+export class AppVersion extends jspb.Message {
+  getVersion(): string;
+  setVersion(value: string): void;
+
+  getCommit(): string;
+  setCommit(value: string): void;
+
+  getDbVersion(): number;
+  setDbVersion(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): AppVersion.AsObject;
+  static toObject(includeInstance: boolean, msg: AppVersion): AppVersion.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: AppVersion, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): AppVersion;
+  static deserializeBinaryFromReader(message: AppVersion, reader: jspb.BinaryReader): AppVersion;
+}
+
+export namespace AppVersion {
+  export type AsObject = {
+    version: string,
+    commit: string,
+    dbVersion: number,
+  }
+}
+

@@ -11,6 +11,23 @@ message InitialPeer {
 }
 
 message InitialPeerEvents {
+  repeated InitialPeerEvent events = 1;
+}
+
+enum EventType {
+  START = 0;
+  STOP = 1;
+}
+message InitialPeerEvent {
+  string address = 1;
+  uint64 timestamp = 2;
+  EventType type = 3;
+  core.BcBlock block = 4;
+}
+
+message DhtId {
+  string id = 1;
+  string timestamp = 2;
 }
 
 message BcBlocks {
