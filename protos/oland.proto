@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package bc.oland;
+
+message Plot {
+    string hash = 1;
+    uint64 version = 2;
+    string blockchain = 3;
+    // with ms
+    uint64 distance = 4; // the influence score of the plot based on impacted txs ini the panels 
+    uint64 timestamp = 5; // the creation date of the plot or associated with the increment of the nonce
+    uint64 plot_attrs_count = 6;
+    string nonce = 7; // reference to originating plot overline route or nonce
+    string merkle_root = 8; // merkle root of all plot attributes and all repeated fields
+    string signature = 9; // generally of the merkle root 
+    uint64 owner_count = 10; 
+    uint64 marked_tx_hashes_count = 11; 
+    uint64 emb_hashes_count = 12; 
+    repeated string owners = 13; // hashes of payout address
+    repeated string marked_txs_hashes = 14; // hashes of transactions that are marked as part of the plot and associated to the blockchain
+    repeated string emb_hashes = 15; // transaction hashes of emb boosts or OL feed transactions
+    repeated PlotAttribute attributes = 16;
+    repeated PlotPanel panels = 17; // routing tables for transactions
+}
+
+message PlotAttribute {
+    string name = 1;
+    string value = 2;
+    string type = 3;
+}
+
+message PlotPanel {
+    string hash = 1;
+    string previous_hash = 2; 
+    uint64 version = 3;
+    string shard_hash = 4;
+    string shard_nonce = 5; /// the public r of the rollup or schnorr
+    string partial_proof = 6; // proof of the shard hash 
+    string partial_signature = 7; // additional proof  
+    uint64 tx_count = 8;
+    repeated string txs = 9; // ol hashes compressed through schnorr based on the shard hash
+}
