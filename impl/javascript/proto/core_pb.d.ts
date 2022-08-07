@@ -46,6 +46,9 @@ export class Block extends jspb.Message {
   setMarkedTxsList(value: Array<MarkedTransaction>): void;
   addMarkedTxs(value?: MarkedTransaction, index?: number): MarkedTransaction;
 
+  getDifficulty(): number;
+  setDifficulty(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Block.AsObject;
   static toObject(includeInstance: boolean, msg: Block): Block.AsObject;
@@ -66,6 +69,55 @@ export namespace Block {
     merkleRoot: string,
     markedTxCount: number,
     markedTxsList: Array<MarkedTransaction.AsObject>,
+    difficulty: number,
+  }
+}
+
+export class TetheredWork extends jspb.Message {
+  getVersion(): number;
+  setVersion(value: number): void;
+
+  getBlockchain(): string;
+  setBlockchain(value: string): void;
+
+  getBlockHash(): string;
+  setBlockHash(value: string): void;
+
+  getNonce(): string;
+  setNonce(value: string): void;
+
+  getDifficulty(): number;
+  setDifficulty(value: number): void;
+
+  getSignature(): string;
+  setSignature(value: string): void;
+
+  getTxPanel(): string;
+  setTxPanel(value: string): void;
+
+  getPoolUrl(): string;
+  setPoolUrl(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): TetheredWork.AsObject;
+  static toObject(includeInstance: boolean, msg: TetheredWork): TetheredWork.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: TetheredWork, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): TetheredWork;
+  static deserializeBinaryFromReader(message: TetheredWork, reader: jspb.BinaryReader): TetheredWork;
+}
+
+export namespace TetheredWork {
+  export type AsObject = {
+    version: number,
+    blockchain: string,
+    blockHash: string,
+    nonce: string,
+    difficulty: number,
+    signature: string,
+    txPanel: string,
+    poolUrl: string,
   }
 }
 
@@ -216,9 +268,9 @@ export class BcBlock extends jspb.Message {
   setTwn(value: number): void;
 
   clearTwsList(): void;
-  getTwsList(): Array<string>;
-  setTwsList(value: Array<string>): void;
-  addTws(value: string, index?: number): string;
+  getTwsList(): Array<TetheredWork>;
+  setTwsList(value: Array<TetheredWork>): void;
+  addTws(value?: TetheredWork, index?: number): TetheredWork;
 
   getEmblemWeight(): number;
   setEmblemWeight(value: number): void;
@@ -281,7 +333,7 @@ export namespace BcBlock {
     nonce: string,
     nrgGrant: number,
     twn: number,
-    twsList: Array<string>,
+    twsList: Array<TetheredWork.AsObject>,
     emblemWeight: number,
     emblemChainFingerprintRoot: string,
     emblemChainAddress: string,
