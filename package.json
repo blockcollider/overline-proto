@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/blockcollider/overline-proto#readme",
   "devDependencies": {
+    "parse-url": ">=6.0.1",
     "@release-it/bumper": "^3.0.1",
     "@release-it/keep-a-changelog": "^2.3.0",
     "@grpc/grpc-js": "^1.4.1",
@@ -38,6 +39,7 @@
     "ts-protoc-gen": "^0.15.0"
   },
   "peerDependencies": {
+    "parse-url": ">=6.0.1",
     "@grpc/grpc-js": "^1",
     "bn.js": "^5",
     "google-protobuf": "^3"
