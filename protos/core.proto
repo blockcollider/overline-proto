@@ -6,12 +6,12 @@ message Null {}
 
 message Block {
     string blockchain = 1;
-    string hash = 2;
-    string previous_hash = 3;
+    bytes hash = 2;
+    bytes previous_hash = 3;
     // with ms
     uint64 timestamp = 4;
     uint64 height = 5;
-    string merkle_root = 6;
+    bytes merkle_root = 6;
     uint64 marked_tx_count = 7;
     repeated MarkedTransaction marked_txs = 8;
     uint64 difficulty = 9;
@@ -20,12 +20,12 @@ message Block {
 message TetheredWork {
   uint64 version = 1; // the version of this work that corresponds to the chain and difficulty algorithm 
   string blockchain = 2; // the unique blockchain name
-  string block_hash = 3; // the hash of the block that this work corresponds to
-  string nonce = 4; // generally used as the work nonce, but can be used for other purposes
+  bytes block_hash = 3; // the hash of the block that this work corresponds to
+  bytes nonce = 4; // generally used as the work nonce, but can be used for other purposes
   uint64 difficulty = 5; // other chains may include oracles or validators here depending on the version
-  string signature = 6; // proof this work was mined by the owner of the block optional unlesss stake chain
-  string tx_panel = 7; // routing path through oland plot hash
-  string pool_url = 8;
+  bytes signature = 6; // proof this work was mined by the owner of the block optional unlesss stake chain
+  bytes tx_panel = 7; // routing path through oland plot hash
+  bytes pool_url = 8;
 }
 
 message MarkedTransaction {
