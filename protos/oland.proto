@@ -34,9 +34,9 @@ message PlotPanel {
     bytes previous_hash = 2; 
     uint64 version = 3;
     bytes shard_hash = 4;
-    string shard_nonce = 5; /// the public r of the rollup or schnorr
+    bytes shard_nonce = 5; /// the public r of the rollup or schnorr
     bytes partial_proof = 6; // proof of the shard hash 
     bytes partial_signature = 7; // additional proof  
     uint64 tx_count = 8;
-    repeated string txs = 9; // ol hashes compressed through schnorr based on the shard hash
+    repeated bytes txs = 9; // ol hashes compressed through schnorr based on the shard hash
 }
