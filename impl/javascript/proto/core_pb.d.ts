@@ -23,11 +23,15 @@ export class Block extends jspb.Message {
   getBlockchain(): string;
   setBlockchain(value: string): void;
 
-  getHash(): string;
-  setHash(value: string): void;
+  getHash(): Uint8Array | string;
+  getHash_asU8(): Uint8Array;
+  getHash_asB64(): string;
+  setHash(value: Uint8Array | string): void;
 
-  getPreviousHash(): string;
-  setPreviousHash(value: string): void;
+  getPreviousHash(): Uint8Array | string;
+  getPreviousHash_asU8(): Uint8Array;
+  getPreviousHash_asB64(): string;
+  setPreviousHash(value: Uint8Array | string): void;
 
   getTimestamp(): number;
   setTimestamp(value: number): void;
@@ -35,8 +39,10 @@ export class Block extends jspb.Message {
   getHeight(): number;
   setHeight(value: number): void;
 
-  getMerkleRoot(): string;
-  setMerkleRoot(value: string): void;
+  getMerkleRoot(): Uint8Array | string;
+  getMerkleRoot_asU8(): Uint8Array;
+  getMerkleRoot_asB64(): string;
+  setMerkleRoot(value: Uint8Array | string): void;
 
   getMarkedTxCount(): number;
   setMarkedTxCount(value: number): void;
@@ -62,11 +68,11 @@ export class Block extends jspb.Message {
 export namespace Block {
   export type AsObject = {
     blockchain: string,
-    hash: string,
-    previousHash: string,
+    hash: Uint8Array | string,
+    previousHash: Uint8Array | string,
     timestamp: number,
     height: number,
-    merkleRoot: string,
+    merkleRoot: Uint8Array | string,
     markedTxCount: number,
     markedTxsList: Array<MarkedTransaction.AsObject>,
     difficulty: number,
@@ -80,23 +86,33 @@ export class TetheredWork extends jspb.Message {
   getBlockchain(): string;
   setBlockchain(value: string): void;
 
-  getBlockHash(): string;
-  setBlockHash(value: string): void;
+  getBlockHash(): Uint8Array | string;
+  getBlockHash_asU8(): Uint8Array;
+  getBlockHash_asB64(): string;
+  setBlockHash(value: Uint8Array | string): void;
 
-  getNonce(): string;
-  setNonce(value: string): void;
+  getNonce(): Uint8Array | string;
+  getNonce_asU8(): Uint8Array;
+  getNonce_asB64(): string;
+  setNonce(value: Uint8Array | string): void;
 
   getDifficulty(): number;
   setDifficulty(value: number): void;
 
-  getSignature(): string;
-  setSignature(value: string): void;
+  getSignature(): Uint8Array | string;
+  getSignature_asU8(): Uint8Array;
+  getSignature_asB64(): string;
+  setSignature(value: Uint8Array | string): void;
 
-  getTxPanel(): string;
-  setTxPanel(value: string): void;
+  getTxPanel(): Uint8Array | string;
+  getTxPanel_asU8(): Uint8Array;
+  getTxPanel_asB64(): string;
+  setTxPanel(value: Uint8Array | string): void;
 
-  getPoolUrl(): string;
-  setPoolUrl(value: string): void;
+  getPoolUrl(): Uint8Array | string;
+  getPoolUrl_asU8(): Uint8Array;
+  getPoolUrl_asB64(): string;
+  setPoolUrl(value: Uint8Array | string): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): TetheredWork.AsObject;
@@ -112,12 +128,12 @@ export namespace TetheredWork {
   export type AsObject = {
     version: number,
     blockchain: string,
-    blockHash: string,
-    nonce: string,
+    blockHash: Uint8Array | string,
+    nonce: Uint8Array | string,
     difficulty: number,
-    signature: string,
-    txPanel: string,
-    poolUrl: string,
+    signature: Uint8Array | string,
+    txPanel: Uint8Array | string,
+    poolUrl: Uint8Array | string,
   }
 }
 
