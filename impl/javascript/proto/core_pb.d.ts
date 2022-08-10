@@ -55,6 +55,16 @@ export class Block extends jspb.Message {
   getDifficulty(): number;
   setDifficulty(value: number): void;
 
+  getNonce(): Uint8Array | string;
+  getNonce_asU8(): Uint8Array;
+  getNonce_asB64(): string;
+  setNonce(value: Uint8Array | string): void;
+
+  getProof(): Uint8Array | string;
+  getProof_asU8(): Uint8Array;
+  getProof_asB64(): string;
+  setProof(value: Uint8Array | string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Block.AsObject;
   static toObject(includeInstance: boolean, msg: Block): Block.AsObject;
@@ -76,6 +86,8 @@ export namespace Block {
     markedTxCount: number,
     markedTxsList: Array<MarkedTransaction.AsObject>,
     difficulty: number,
+    nonce: Uint8Array | string,
+    proof: Uint8Array | string,
   }
 }
 

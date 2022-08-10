@@ -538,7 +538,9 @@ proto.bc.core.Block.toObject = function(includeInstance, msg) {
     markedTxCount: jspb.Message.getFieldWithDefault(msg, 7, 0),
     markedTxsList: jspb.Message.toObjectList(msg.getMarkedTxsList(),
     proto.bc.core.MarkedTransaction.toObject, includeInstance),
-    difficulty: jspb.Message.getFieldWithDefault(msg, 9, 0)
+    difficulty: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    nonce: msg.getNonce_asB64(),
+    proof: msg.getProof_asB64()
   };
 
   if (includeInstance) {
@@ -611,6 +613,14 @@ proto.bc.core.Block.deserializeBinaryFromReader = function(msg, reader) {
     case 9:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setDifficulty(value);
+      break;
+    case 10:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.setNonce(value);
+      break;
+    case 11:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.setProof(value);
       break;
     default:
       reader.skipField();
@@ -702,6 +712,20 @@ proto.bc.core.Block.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       9,
+      f
+    );
+  }
+  f = message.getNonce_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
+      10,
+      f
+    );
+  }
+  f = message.getProof_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
+      11,
       f
     );
   }
@@ -959,6 +983,90 @@ proto.bc.core.Block.prototype.getDifficulty = function() {
  */
 proto.bc.core.Block.prototype.setDifficulty = function(value) {
   return jspb.Message.setProto3IntField(this, 9, value);
+};
+
+
+/**
+ * optional bytes nonce = 10;
+ * @return {!(string|Uint8Array)}
+ */
+proto.bc.core.Block.prototype.getNonce = function() {
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
+};
+
+
+/**
+ * optional bytes nonce = 10;
+ * This is a type-conversion wrapper around `getNonce()`
+ * @return {string}
+ */
+proto.bc.core.Block.prototype.getNonce_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getNonce()));
+};
+
+
+/**
+ * optional bytes nonce = 10;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getNonce()`
+ * @return {!Uint8Array}
+ */
+proto.bc.core.Block.prototype.getNonce_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getNonce()));
+};
+
+
+/**
+ * @param {!(string|Uint8Array)} value
+ * @return {!proto.bc.core.Block} returns this
+ */
+proto.bc.core.Block.prototype.setNonce = function(value) {
+  return jspb.Message.setProto3BytesField(this, 10, value);
+};
+
+
+/**
+ * optional bytes proof = 11;
+ * @return {!(string|Uint8Array)}
+ */
+proto.bc.core.Block.prototype.getProof = function() {
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 11, ""));
+};
+
+
+/**
+ * optional bytes proof = 11;
+ * This is a type-conversion wrapper around `getProof()`
+ * @return {string}
+ */
+proto.bc.core.Block.prototype.getProof_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getProof()));
+};
+
+
+/**
+ * optional bytes proof = 11;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getProof()`
+ * @return {!Uint8Array}
+ */
+proto.bc.core.Block.prototype.getProof_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getProof()));
+};
+
+
+/**
+ * @param {!(string|Uint8Array)} value
+ * @return {!proto.bc.core.Block} returns this
+ */
+proto.bc.core.Block.prototype.setProof = function(value) {
+  return jspb.Message.setProto3BytesField(this, 11, value);
 };
 
 
