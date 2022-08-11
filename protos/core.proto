@@ -6,12 +6,12 @@ message Null {}
 
 message Block {
     string blockchain = 1;
-    bytes hash = 2;
-    bytes previous_hash = 3;
+    string hash = 2;
+    string previous_hash = 3;
     // with ms
     uint64 timestamp = 4;
     uint64 height = 5;
-    bytes merkle_root = 6;
+    string merkle_root = 6;
     uint64 marked_tx_count = 7;
     repeated MarkedTransaction marked_txs = 8;
     uint64 difficulty = 9;

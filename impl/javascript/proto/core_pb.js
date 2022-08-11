@@ -530,11 +530,11 @@ proto.bc.core.Block.prototype.toObject = function(opt_includeInstance) {
 proto.bc.core.Block.toObject = function(includeInstance, msg) {
   var f, obj = {
     blockchain: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    hash: msg.getHash_asB64(),
-    previousHash: msg.getPreviousHash_asB64(),
+    hash: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    previousHash: jspb.Message.getFieldWithDefault(msg, 3, ""),
     timestamp: jspb.Message.getFieldWithDefault(msg, 4, 0),
     height: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    merkleRoot: msg.getMerkleRoot_asB64(),
+    merkleRoot: jspb.Message.getFieldWithDefault(msg, 6, ""),
     markedTxCount: jspb.Message.getFieldWithDefault(msg, 7, 0),
     markedTxsList: jspb.Message.toObjectList(msg.getMarkedTxsList(),
     proto.bc.core.MarkedTransaction.toObject, includeInstance),
@@ -582,11 +582,11 @@ proto.bc.core.Block.deserializeBinaryFromReader = function(msg, reader) {
       msg.setBlockchain(value);
       break;
     case 2:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      var value = /** @type {string} */ (reader.readString());
       msg.setHash(value);
       break;
     case 3:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      var value = /** @type {string} */ (reader.readString());
       msg.setPreviousHash(value);
       break;
     case 4:
@@ -598,7 +598,7 @@ proto.bc.core.Block.deserializeBinaryFromReader = function(msg, reader) {
       msg.setHeight(value);
       break;
     case 6:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      var value = /** @type {string} */ (reader.readString());
       msg.setMerkleRoot(value);
       break;
     case 7:
@@ -658,16 +658,16 @@ proto.bc.core.Block.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getHash_asU8();
+  f = message.getHash();
   if (f.length > 0) {
-    writer.writeBytes(
+    writer.writeString(
       2,
       f
     );
   }
-  f = message.getPreviousHash_asU8();
+  f = message.getPreviousHash();
   if (f.length > 0) {
-    writer.writeBytes(
+    writer.writeString(
       3,
       f
     );
@@ -686,9 +686,9 @@ proto.bc.core.Block.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getMerkleRoot_asU8();
+  f = message.getMerkleRoot();
   if (f.length > 0) {
-    writer.writeBytes(
+    writer.writeString(
       6,
       f
     );
@@ -751,86 +751,38 @@ proto.bc.core.Block.prototype.setBlockchain = function(value) {
 
 
 /**
- * optional bytes hash = 2;
- * @return {!(string|Uint8Array)}
- */
-proto.bc.core.Block.prototype.getHash = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/**
- * optional bytes hash = 2;
- * This is a type-conversion wrapper around `getHash()`
+ * optional string hash = 2;
  * @return {string}
  */
-proto.bc.core.Block.prototype.getHash_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getHash()));
+proto.bc.core.Block.prototype.getHash = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /**
- * optional bytes hash = 2;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getHash()`
- * @return {!Uint8Array}
- */
-proto.bc.core.Block.prototype.getHash_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getHash()));
-};
-
-
-/**
- * @param {!(string|Uint8Array)} value
+ * @param {string} value
  * @return {!proto.bc.core.Block} returns this
  */
 proto.bc.core.Block.prototype.setHash = function(value) {
-  return jspb.Message.setProto3BytesField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
 /**
- * optional bytes previous_hash = 3;
- * @return {!(string|Uint8Array)}
- */
-proto.bc.core.Block.prototype.getPreviousHash = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/**
- * optional bytes previous_hash = 3;
- * This is a type-conversion wrapper around `getPreviousHash()`
+ * optional string previous_hash = 3;
  * @return {string}
  */
-proto.bc.core.Block.prototype.getPreviousHash_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getPreviousHash()));
+proto.bc.core.Block.prototype.getPreviousHash = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /**
- * optional bytes previous_hash = 3;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getPreviousHash()`
- * @return {!Uint8Array}
- */
-proto.bc.core.Block.prototype.getPreviousHash_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getPreviousHash()));
-};
-
-
-/**
- * @param {!(string|Uint8Array)} value
+ * @param {string} value
  * @return {!proto.bc.core.Block} returns this
  */
 proto.bc.core.Block.prototype.setPreviousHash = function(value) {
-  return jspb.Message.setProto3BytesField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -871,44 +823,20 @@ proto.bc.core.Block.prototype.setHeight = function(value) {
 
 
 /**
- * optional bytes merkle_root = 6;
- * @return {!(string|Uint8Array)}
- */
-proto.bc.core.Block.prototype.getMerkleRoot = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
-};
-
-
-/**
- * optional bytes merkle_root = 6;
- * This is a type-conversion wrapper around `getMerkleRoot()`
+ * optional string merkle_root = 6;
  * @return {string}
  */
-proto.bc.core.Block.prototype.getMerkleRoot_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getMerkleRoot()));
+proto.bc.core.Block.prototype.getMerkleRoot = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
 /**
- * optional bytes merkle_root = 6;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getMerkleRoot()`
- * @return {!Uint8Array}
- */
-proto.bc.core.Block.prototype.getMerkleRoot_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getMerkleRoot()));
-};
-
-
-/**
- * @param {!(string|Uint8Array)} value
+ * @param {string} value
  * @return {!proto.bc.core.Block} returns this
  */
 proto.bc.core.Block.prototype.setMerkleRoot = function(value) {
-  return jspb.Message.setProto3BytesField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 

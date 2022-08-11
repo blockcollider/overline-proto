@@ -23,15 +23,11 @@ export class Block extends jspb.Message {
   getBlockchain(): string;
   setBlockchain(value: string): void;
 
-  getHash(): Uint8Array | string;
-  getHash_asU8(): Uint8Array;
-  getHash_asB64(): string;
-  setHash(value: Uint8Array | string): void;
+  getHash(): string;
+  setHash(value: string): void;
 
-  getPreviousHash(): Uint8Array | string;
-  getPreviousHash_asU8(): Uint8Array;
-  getPreviousHash_asB64(): string;
-  setPreviousHash(value: Uint8Array | string): void;
+  getPreviousHash(): string;
+  setPreviousHash(value: string): void;
 
   getTimestamp(): number;
   setTimestamp(value: number): void;
@@ -39,10 +35,8 @@ export class Block extends jspb.Message {
   getHeight(): number;
   setHeight(value: number): void;
 
-  getMerkleRoot(): Uint8Array | string;
-  getMerkleRoot_asU8(): Uint8Array;
-  getMerkleRoot_asB64(): string;
-  setMerkleRoot(value: Uint8Array | string): void;
+  getMerkleRoot(): string;
+  setMerkleRoot(value: string): void;
 
   getMarkedTxCount(): number;
   setMarkedTxCount(value: number): void;
@@ -78,11 +72,11 @@ export class Block extends jspb.Message {
 export namespace Block {
   export type AsObject = {
     blockchain: string,
-    hash: Uint8Array | string,
-    previousHash: Uint8Array | string,
+    hash: string,
+    previousHash: string,
     timestamp: number,
     height: number,
-    merkleRoot: Uint8Array | string,
+    merkleRoot: string,
     markedTxCount: number,
     markedTxsList: Array<MarkedTransaction.AsObject>,
     difficulty: number,
