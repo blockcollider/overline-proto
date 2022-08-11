@@ -4,28 +4,29 @@ package bc.oland;
 
 message Plot {
     bytes hash = 1;
-    uint64 version = 2;
-    string blockchain = 3;
+    uint64 plot_number = 2;
+    uint64 version = 3;
+    string blockchain = 4;
     // with ms
-    uint64 distance = 4; // the influence score of the plot based on impacted txs ini the panels 
-    uint64 timestamp = 5; // the creation date of the plot or associated with the increment of the nonce
-    uint64 plot_attrs_count = 6;
-    bytes nonce = 7; // reference to originating plot overline route or nonce
-    bytes merkle_root = 8; // merkle root of all plot attributes and all repeated fields
-    bytes signature = 9; // generally of the merkle root 
-    uint64 owner_count = 10; 
-    uint64 marked_tx_hashes_count = 11; 
-    uint64 emb_hashes_count = 12; 
-    repeated bytes owners = 13; // hashes of payout address
-    repeated bytes marked_txs_hashes = 14; // hashes of transactions that are marked as part of the plot and associated to the blockchain
-    repeated bytes emb_hashes = 15; // transaction hashes of emb boosts or OL feed transactions
-    repeated PlotAttribute attributes = 16;
-    repeated PlotPanel panels = 17; // routing tables for transactions
+    uint64 distance = 5; // the influence score of the plot based on impacted txs ini the panels 
+    uint64 timestamp = 6; // the creation date of the plot or associated with the increment of the nonce
+    uint64 plot_attrs_count = 7;
+    bytes nonce = 8; // reference to originating plot overline route or nonce
+    bytes merkle_root = 9; // merkle root of all plot attributes and all repeated fields
+    bytes signature = 10; // generally of the merkle root 
+    uint64 owner_count = 11; 
+    uint64 marked_tx_hashes_count = 12; 
+    uint64 emb_hashes_count = 13; 
+    repeated bytes owners = 14; // hashes of payout address
+    repeated bytes marked_txs_hashes = 15; // hashes of transactions that are marked as part of the plot and associated to the blockchain
+    repeated bytes emb_hashes = 16; // transaction hashes of emb boosts or OL feed transactions
+    repeated PlotAttribute attributes = 17;
+    repeated PlotPanel panels = 18; // routing tables for transactions
 }
 
 message PlotAttribute {
-    bytes name = 1;
-    bytes value = 2;
+    string name = 1;
+    string value = 2;
     bytes type = 3;
 }
 
