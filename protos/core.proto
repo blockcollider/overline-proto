@@ -14,6 +14,20 @@ message Block {
     string merkle_root = 6;
     uint64 marked_tx_count = 7;
     repeated MarkedTransaction marked_txs = 8;
+    uint64 difficulty = 9;
+    bytes nonce = 10; // 
+    bytes proof = 11; 
+}
+
+message TetheredWork {
+  uint64 version = 1; // the version of this work that corresponds to the chain and difficulty algorithm 
+  string blockchain = 2; // the unique blockchain name
+  bytes block_hash = 3; // the hash of the block that this work corresponds to
+  bytes nonce = 4; // generally used as the work nonce, but can be used for other purposes
+  uint64 difficulty = 5; // other chains may include oracles or validators here depending on the version
+  bytes signature = 6; // proof this work was mined by the owner of the block optional unlesss stake chain
+  bytes tx_panel = 7; // routing path through oland plot hash
+  bytes pool_url = 8;
 }
 
 message MarkedTransaction {
@@ -52,7 +66,7 @@ message BcBlock {
     string nonce = 13;
     uint64 nrg_grant = 14;
     uint64 twn = 15;
-    repeated string tws = 16;
+    repeated TetheredWork tws = 16;
     uint64 emblem_weight = 17;
     string emblem_chain_fingerprint_root = 18;
     string emblem_chain_address = 19;
